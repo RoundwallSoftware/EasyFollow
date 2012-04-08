@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
+		9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
+		9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD94153243C700B256EC /* CoreGraphics.framework */; };
+		9BC7AD9B153243C700B256EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7AD99153243C700B256EC /* InfoPlist.strings */; };
+		9BC7AD9D153243C700B256EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7AD9C153243C700B256EC /* main.m */; };
+		9BC7ADA1153243C700B256EC /* GOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADA0153243C700B256EC /* GOAppDelegate.m */; };
+		9BC7ADA4153243C700B256EC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */; };
+		9BC7ADA7153243C700B256EC /* GOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADA6153243C700B256EC /* GOViewController.m */; };
+		9BC7ADAF153243C700B256EC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADAE153243C700B256EC /* SenTestingKit.framework */; };
+		9BC7ADB0153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
+		9BC7ADB1153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
+		9BC7ADB9153243C700B256EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7ADB7153243C700B256EC /* InfoPlist.strings */; };
+		9BC7ADBC153243C700B256EC /* EasyFollowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADBB153243C700B256EC /* EasyFollowTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BC7ADB2153243C700B256EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BC7AD83153243C600B256EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BC7AD8B153243C700B256EC;
+			remoteInfo = EasyFollow;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9BC7AD8C153243C700B256EC /* EasyFollow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFollow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BC7AD90153243C700B256EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9BC7AD92153243C700B256EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9BC7AD94153243C700B256EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9BC7AD98153243C700B256EC /* EasyFollow-Info.plist */ = {isa = PBXFileReference; path = "EasyFollow-Info.plist"; sourceTree = "<group>"; };
+		9BC7AD9A153243C700B256EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9BC7AD9C153243C700B256EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9BC7AD9E153243C700B256EC /* EasyFollow-Prefix.pch */ = {isa = PBXFileReference; path = "EasyFollow-Prefix.pch"; sourceTree = "<group>"; };
+		9BC7AD9F153243C700B256EC /* GOAppDelegate.h */ = {isa = PBXFileReference; path = GOAppDelegate.h; sourceTree = "<group>"; };
+		9BC7ADA0153243C700B256EC /* GOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GOAppDelegate.m; sourceTree = "<group>"; };
+		9BC7ADA3153243C700B256EC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		9BC7ADA5153243C700B256EC /* GOViewController.h */ = {isa = PBXFileReference; path = GOViewController.h; sourceTree = "<group>"; };
+		9BC7ADA6153243C700B256EC /* GOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GOViewController.m; sourceTree = "<group>"; };
+		9BC7ADAD153243C700B256EC /* EasyFollowTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyFollowTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BC7ADAE153243C700B256EC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9BC7ADB6153243C700B256EC /* EasyFollowTests-Info.plist */ = {isa = PBXFileReference; path = "EasyFollowTests-Info.plist"; sourceTree = "<group>"; };
+		9BC7ADB8153243C700B256EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9BC7ADBA153243C700B256EC /* EasyFollowTests.h */ = {isa = PBXFileReference; path = EasyFollowTests.h; sourceTree = "<group>"; };
+		9BC7ADBB153243C700B256EC /* EasyFollowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyFollowTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BC7AD89153243C700B256EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */,
+				9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */,
+				9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BC7ADA9153243C700B256EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BC7ADAF153243C700B256EC /* SenTestingKit.framework in Frameworks */,
+				9BC7ADB0153243C700B256EC /* UIKit.framework in Frameworks */,
+				9BC7ADB1153243C700B256EC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9BC7AD81153243C600B256EC = {
+			isa = PBXGroup;
+			children = (
+				9BC7AD96153243C700B256EC /* EasyFollow */,
+				9BC7ADB4153243C700B256EC /* EasyFollowTests */,
+				9BC7AD8F153243C700B256EC /* Frameworks */,
+				9BC7AD8D153243C700B256EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9BC7AD8D153243C700B256EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BC7AD8C153243C700B256EC /* EasyFollow.app */,
+				9BC7ADAD153243C700B256EC /* EasyFollowTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BC7AD8F153243C700B256EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9BC7AD90153243C700B256EC /* UIKit.framework */,
+				9BC7AD92153243C700B256EC /* Foundation.framework */,
+				9BC7AD94153243C700B256EC /* CoreGraphics.framework */,
+				9BC7ADAE153243C700B256EC /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BC7AD96153243C700B256EC /* EasyFollow */ = {
+			isa = PBXGroup;
+			children = (
+				9BC7AD9F153243C700B256EC /* GOAppDelegate.h */,
+				9BC7ADA0153243C700B256EC /* GOAppDelegate.m */,
+				9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */,
+				9BC7ADA5153243C700B256EC /* GOViewController.h */,
+				9BC7ADA6153243C700B256EC /* GOViewController.m */,
+				9BC7AD97153243C700B256EC /* Supporting Files */,
+			);
+			path = EasyFollow;
+			sourceTree = "<group>";
+		};
+		9BC7AD97153243C700B256EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BC7AD98153243C700B256EC /* EasyFollow-Info.plist */,
+				9BC7AD99153243C700B256EC /* InfoPlist.strings */,
+				9BC7AD9C153243C700B256EC /* main.m */,
+				9BC7AD9E153243C700B256EC /* EasyFollow-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BC7ADB4153243C700B256EC /* EasyFollowTests */ = {
+			isa = PBXGroup;
+			children = (
+				9BC7ADBA153243C700B256EC /* EasyFollowTests.h */,
+				9BC7ADBB153243C700B256EC /* EasyFollowTests.m */,
+				9BC7ADB5153243C700B256EC /* Supporting Files */,
+			);
+			path = EasyFollowTests;
+			sourceTree = "<group>";
+		};
+		9BC7ADB5153243C700B256EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BC7ADB6153243C700B256EC /* EasyFollowTests-Info.plist */,
+				9BC7ADB7153243C700B256EC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BC7AD8B153243C700B256EC /* EasyFollow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BC7ADBF153243C700B256EC /* Build configuration list for PBXNativeTarget "EasyFollow" */;
+			buildPhases = (
+				9BC7AD88153243C700B256EC /* Sources */,
+				9BC7AD89153243C700B256EC /* Frameworks */,
+				9BC7AD8A153243C700B256EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyFollow;
+			productName = EasyFollow;
+			productReference = 9BC7AD8C153243C700B256EC /* EasyFollow.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9BC7ADAC153243C700B256EC /* EasyFollowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BC7ADC2153243C700B256EC /* Build configuration list for PBXNativeTarget "EasyFollowTests" */;
+			buildPhases = (
+				9BC7ADA8153243C700B256EC /* Sources */,
+				9BC7ADA9153243C700B256EC /* Frameworks */,
+				9BC7ADAA153243C700B256EC /* Resources */,
+				9BC7ADAB153243C700B256EC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BC7ADB3153243C700B256EC /* PBXTargetDependency */,
+			);
+			name = EasyFollowTests;
+			productName = EasyFollowTests;
+			productReference = 9BC7ADAD153243C700B256EC /* EasyFollowTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BC7AD83153243C600B256EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GO;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "SNAP Interactive";
+			};
+			buildConfigurationList = 9BC7AD86153243C600B256EC /* Build configuration list for PBXProject "EasyFollow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9BC7AD81153243C600B256EC;
+			productRefGroup = 9BC7AD8D153243C700B256EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BC7AD8B153243C700B256EC /* EasyFollow */,
+				9BC7ADAC153243C700B256EC /* EasyFollowTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BC7AD8A153243C700B256EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BC7AD9B153243C700B256EC /* InfoPlist.strings in Resources */,
+				9BC7ADA4153243C700B256EC /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BC7ADAA153243C700B256EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BC7ADB9153243C700B256EC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9BC7ADAB153243C700B256EC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BC7AD88153243C700B256EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BC7AD9D153243C700B256EC /* main.m in Sources */,
+				9BC7ADA1153243C700B256EC /* GOAppDelegate.m in Sources */,
+				9BC7ADA7153243C700B256EC /* GOViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BC7ADA8153243C700B256EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BC7ADBC153243C700B256EC /* EasyFollowTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BC7ADB3153243C700B256EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BC7AD8B153243C700B256EC /* EasyFollow */;
+			targetProxy = 9BC7ADB2153243C700B256EC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9BC7AD99153243C700B256EC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BC7AD9A153243C700B256EC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BC7ADA3153243C700B256EC /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		9BC7ADB7153243C700B256EC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BC7ADB8153243C700B256EC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9BC7ADBD153243C700B256EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9BC7ADBE153243C700B256EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9BC7ADC0153243C700B256EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyFollow/EasyFollow-Prefix.pch";
+				INFOPLIST_FILE = "EasyFollow/EasyFollow-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9BC7ADC1153243C700B256EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyFollow/EasyFollow-Prefix.pch";
+				INFOPLIST_FILE = "EasyFollow/EasyFollow-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9BC7ADC3153243C700B256EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EasyFollow.app/EasyFollow";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyFollow/EasyFollow-Prefix.pch";
+				INFOPLIST_FILE = "EasyFollowTests/EasyFollowTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9BC7ADC4153243C700B256EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EasyFollow.app/EasyFollow";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyFollow/EasyFollow-Prefix.pch";
+				INFOPLIST_FILE = "EasyFollowTests/EasyFollowTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BC7AD86153243C600B256EC /* Build configuration list for PBXProject "EasyFollow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BC7ADBD153243C700B256EC /* Debug */,
+				9BC7ADBE153243C700B256EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BC7ADBF153243C700B256EC /* Build configuration list for PBXNativeTarget "EasyFollow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BC7ADC0153243C700B256EC /* Debug */,
+				9BC7ADC1153243C700B256EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9BC7ADC2153243C700B256EC /* Build configuration list for PBXNativeTarget "EasyFollowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BC7ADC3153243C700B256EC /* Debug */,
+				9BC7ADC4153243C700B256EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BC7AD83153243C600B256EC /* Project object */;
+}
