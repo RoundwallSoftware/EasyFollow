@@ -48,8 +48,20 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
 }
 
 - (void)updateAccountIndicator{
+    CGFloat totalWidth = CGRectGetWidth(self.view.bounds);
+    CGRect originalFrame = self.accountNameLabel.frame;
+    
     ACAccount *currentAccount = [self currentAccount];
-    self.accountNameLabel.text = [currentAccount username];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.accountNameLabel.frame = CGRectMake(totalWidth, CGRectGetMinY(originalFrame), CGRectGetWidth(originalFrame), CGRectGetHeight(originalFrame));
+        self.accountNameLabel.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        self.accountNameLabel.text = [currentAccount username];
+        self.accountNameLabel.frame = originalFrame;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.accountNameLabel.alpha = 1.0f;
+        }];
+    }];
 }
 
 - (IBAction)nextAccount:(id)sender{
