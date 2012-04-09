@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BA38233153269D30030F2A2 /* GOHTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA38231153269D30030F2A2 /* GOHTTPOperation.m */; };
+		9BA38236153269DF0030F2A2 /* GOImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA38234153269DF0030F2A2 /* GOImageCache.m */; };
 		9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
 		9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
 		9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD94153243C700B256EC /* CoreGraphics.framework */; };
@@ -14,12 +16,19 @@
 		9BC7AD9D153243C700B256EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7AD9C153243C700B256EC /* main.m */; };
 		9BC7ADA1153243C700B256EC /* GOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADA0153243C700B256EC /* GOAppDelegate.m */; };
 		9BC7ADA4153243C700B256EC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */; };
-		9BC7ADA7153243C700B256EC /* GOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADA6153243C700B256EC /* GOViewController.m */; };
+		9BC7ADA7153243C700B256EC /* GOSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADA6153243C700B256EC /* GOSearchViewController.m */; };
 		9BC7ADAF153243C700B256EC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADAE153243C700B256EC /* SenTestingKit.framework */; };
 		9BC7ADB0153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
 		9BC7ADB1153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
 		9BC7ADB9153243C700B256EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7ADB7153243C700B256EC /* InfoPlist.strings */; };
 		9BC7ADBC153243C700B256EC /* EasyFollowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADBB153243C700B256EC /* EasyFollowTests.m */; };
+		9BC7ADC81532454600B256EC /* GOUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7ADC51532454600B256EC /* GOUserCell.xib */; };
+		9BC7ADC91532454600B256EC /* GOUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADC71532454600B256EC /* GOUserCell.m */; };
+		9BC7ADD01532465300B256EC /* GOTwitterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADCD1532464500B256EC /* GOTwitterUser.m */; };
+		9BC7ADD21532466700B256EC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADD11532466700B256EC /* Twitter.framework */; };
+		9BC7ADD41532466A00B256EC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADD31532466A00B256EC /* Accounts.framework */; };
+		9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD615324AAD00B256EC /* GODataSource.m */; };
+		9BC7ADDB15324F1400B256EC /* GOAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,25 +42,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B5E4D751532562F001EA717 /* EasyFollow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EasyFollow.entitlements; sourceTree = "<group>"; };
+		9BA38231153269D30030F2A2 /* GOHTTPOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GOHTTPOperation.m; path = ../../GOHTTPOperation/GOHTTPOperation/GOHTTPOperation.m; sourceTree = "<group>"; };
+		9BA38232153269D30030F2A2 /* GOHTTPOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GOHTTPOperation.h; path = ../../GOHTTPOperation/GOHTTPOperation/GOHTTPOperation.h; sourceTree = "<group>"; };
+		9BA38234153269DF0030F2A2 /* GOImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GOImageCache.m; path = ../../GOImageCache/GOImageCache/GOImageCache.m; sourceTree = "<group>"; };
+		9BA38235153269DF0030F2A2 /* GOImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GOImageCache.h; path = ../../GOImageCache/GOImageCache/GOImageCache.h; sourceTree = "<group>"; };
 		9BC7AD8C153243C700B256EC /* EasyFollow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFollow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC7AD90153243C700B256EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9BC7AD92153243C700B256EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9BC7AD94153243C700B256EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9BC7AD98153243C700B256EC /* EasyFollow-Info.plist */ = {isa = PBXFileReference; path = "EasyFollow-Info.plist"; sourceTree = "<group>"; };
+		9BC7AD98153243C700B256EC /* EasyFollow-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyFollow-Info.plist"; sourceTree = "<group>"; };
 		9BC7AD9A153243C700B256EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9BC7AD9C153243C700B256EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9BC7AD9E153243C700B256EC /* EasyFollow-Prefix.pch */ = {isa = PBXFileReference; path = "EasyFollow-Prefix.pch"; sourceTree = "<group>"; };
-		9BC7AD9F153243C700B256EC /* GOAppDelegate.h */ = {isa = PBXFileReference; path = GOAppDelegate.h; sourceTree = "<group>"; };
+		9BC7AD9E153243C700B256EC /* EasyFollow-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyFollow-Prefix.pch"; sourceTree = "<group>"; };
+		9BC7AD9F153243C700B256EC /* GOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GOAppDelegate.h; sourceTree = "<group>"; };
 		9BC7ADA0153243C700B256EC /* GOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GOAppDelegate.m; sourceTree = "<group>"; };
 		9BC7ADA3153243C700B256EC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		9BC7ADA5153243C700B256EC /* GOViewController.h */ = {isa = PBXFileReference; path = GOViewController.h; sourceTree = "<group>"; };
-		9BC7ADA6153243C700B256EC /* GOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GOViewController.m; sourceTree = "<group>"; };
+		9BC7ADA5153243C700B256EC /* GOSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GOSearchViewController.h; sourceTree = "<group>"; };
+		9BC7ADA6153243C700B256EC /* GOSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GOSearchViewController.m; sourceTree = "<group>"; };
 		9BC7ADAD153243C700B256EC /* EasyFollowTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyFollowTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC7ADAE153243C700B256EC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		9BC7ADB6153243C700B256EC /* EasyFollowTests-Info.plist */ = {isa = PBXFileReference; path = "EasyFollowTests-Info.plist"; sourceTree = "<group>"; };
+		9BC7ADB6153243C700B256EC /* EasyFollowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyFollowTests-Info.plist"; sourceTree = "<group>"; };
 		9BC7ADB8153243C700B256EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9BC7ADBA153243C700B256EC /* EasyFollowTests.h */ = {isa = PBXFileReference; path = EasyFollowTests.h; sourceTree = "<group>"; };
+		9BC7ADBA153243C700B256EC /* EasyFollowTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyFollowTests.h; sourceTree = "<group>"; };
 		9BC7ADBB153243C700B256EC /* EasyFollowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyFollowTests.m; sourceTree = "<group>"; };
+		9BC7ADC51532454600B256EC /* GOUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GOUserCell.xib; sourceTree = "<group>"; };
+		9BC7ADC61532454600B256EC /* GOUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOUserCell.h; sourceTree = "<group>"; };
+		9BC7ADC71532454600B256EC /* GOUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOUserCell.m; sourceTree = "<group>"; };
+		9BC7ADCC1532464400B256EC /* GOTwitterUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOTwitterUser.h; sourceTree = "<group>"; };
+		9BC7ADCD1532464500B256EC /* GOTwitterUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOTwitterUser.m; sourceTree = "<group>"; };
+		9BC7ADD11532466700B256EC /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		9BC7ADD31532466A00B256EC /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		9BC7ADD515324AAD00B256EC /* GODataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GODataSource.h; sourceTree = "<group>"; };
+		9BC7ADD615324AAD00B256EC /* GODataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODataSource.m; sourceTree = "<group>"; };
+		9BC7ADD815324F1400B256EC /* GOAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOAccountsViewController.h; sourceTree = "<group>"; };
+		9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOAccountsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BC7ADD41532466A00B256EC /* Accounts.framework in Frameworks */,
+				9BC7ADD21532466700B256EC /* Twitter.framework in Frameworks */,
 				9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */,
 				9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */,
 				9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */,
@@ -78,6 +105,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BA38237153269E70030F2A2 /* Image Loading */ = {
+			isa = PBXGroup;
+			children = (
+				9BA38235153269DF0030F2A2 /* GOImageCache.h */,
+				9BA38234153269DF0030F2A2 /* GOImageCache.m */,
+				9BA38232153269D30030F2A2 /* GOHTTPOperation.h */,
+				9BA38231153269D30030F2A2 /* GOHTTPOperation.m */,
+			);
+			name = "Image Loading";
+			sourceTree = "<group>";
+		};
 		9BC7AD81153243C600B256EC = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +138,8 @@
 		9BC7AD8F153243C700B256EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9BC7ADD31532466A00B256EC /* Accounts.framework */,
+				9BC7ADD11532466700B256EC /* Twitter.framework */,
 				9BC7AD90153243C700B256EC /* UIKit.framework */,
 				9BC7AD92153243C700B256EC /* Foundation.framework */,
 				9BC7AD94153243C700B256EC /* CoreGraphics.framework */,
@@ -111,11 +151,19 @@
 		9BC7AD96153243C700B256EC /* EasyFollow */ = {
 			isa = PBXGroup;
 			children = (
+				9BA38237153269E70030F2A2 /* Image Loading */,
+				9B5E4D751532562F001EA717 /* EasyFollow.entitlements */,
+				9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */,
+				9BC7ADCB1532455400B256EC /* User Cell */,
+				9BC7ADDD15324F1A00B256EC /* Account Selector */,
+				9BC7ADCC1532464400B256EC /* GOTwitterUser.h */,
+				9BC7ADCD1532464500B256EC /* GOTwitterUser.m */,
 				9BC7AD9F153243C700B256EC /* GOAppDelegate.h */,
 				9BC7ADA0153243C700B256EC /* GOAppDelegate.m */,
-				9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */,
-				9BC7ADA5153243C700B256EC /* GOViewController.h */,
-				9BC7ADA6153243C700B256EC /* GOViewController.m */,
+				9BC7ADD515324AAD00B256EC /* GODataSource.h */,
+				9BC7ADD615324AAD00B256EC /* GODataSource.m */,
+				9BC7ADA5153243C700B256EC /* GOSearchViewController.h */,
+				9BC7ADA6153243C700B256EC /* GOSearchViewController.m */,
 				9BC7AD97153243C700B256EC /* Supporting Files */,
 			);
 			path = EasyFollow;
@@ -149,6 +197,25 @@
 				9BC7ADB7153243C700B256EC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BC7ADCB1532455400B256EC /* User Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9BC7ADC51532454600B256EC /* GOUserCell.xib */,
+				9BC7ADC61532454600B256EC /* GOUserCell.h */,
+				9BC7ADC71532454600B256EC /* GOUserCell.m */,
+			);
+			name = "User Cell";
+			sourceTree = "<group>";
+		};
+		9BC7ADDD15324F1A00B256EC /* Account Selector */ = {
+			isa = PBXGroup;
+			children = (
+				9BC7ADD815324F1400B256EC /* GOAccountsViewController.h */,
+				9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */,
+			);
+			name = "Account Selector";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +292,7 @@
 			files = (
 				9BC7AD9B153243C700B256EC /* InfoPlist.strings in Resources */,
 				9BC7ADA4153243C700B256EC /* MainStoryboard.storyboard in Resources */,
+				9BC7ADC81532454600B256EC /* GOUserCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +329,13 @@
 			files = (
 				9BC7AD9D153243C700B256EC /* main.m in Sources */,
 				9BC7ADA1153243C700B256EC /* GOAppDelegate.m in Sources */,
-				9BC7ADA7153243C700B256EC /* GOViewController.m in Sources */,
+				9BC7ADA7153243C700B256EC /* GOSearchViewController.m in Sources */,
+				9BC7ADC91532454600B256EC /* GOUserCell.m in Sources */,
+				9BC7ADD01532465300B256EC /* GOTwitterUser.m in Sources */,
+				9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */,
+				9BC7ADDB15324F1400B256EC /* GOAccountsViewController.m in Sources */,
+				9BA38233153269D30030F2A2 /* GOHTTPOperation.m in Sources */,
+				9BA38236153269DF0030F2A2 /* GOImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,10 +435,22 @@
 		9BC7ADC0153243C700B256EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EasyFollow/EasyFollow-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "EasyFollow/EasyFollow-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -374,8 +460,19 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EasyFollow/EasyFollow-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "EasyFollow/EasyFollow-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -433,6 +530,7 @@
 				9BC7ADC1153243C700B256EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BC7ADC2153243C700B256EC /* Build configuration list for PBXNativeTarget "EasyFollowTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +539,7 @@
 				9BC7ADC4153243C700B256EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
