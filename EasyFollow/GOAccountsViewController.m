@@ -7,6 +7,8 @@
 //
 
 #import "GOAccountsViewController.h"
+#import "NSUserDefaults+GODictionaryLiterals.h"
+#import "NSArray+GOArrayLiterals.h"
 
 NSString *const GOAccountsDidChangeNotification = @"omgtheaccountchanged!";
 NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
@@ -34,13 +36,14 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
 }
 
 - (ACAccount*)currentAccount{
-    NSString *identifier = [[NSUserDefaults standardUserDefaults] objectForKey:kDefaultAccountIdentifierKey];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *identifier = defaults[kDefaultAccountIdentifierKey];
     if(identifier){
         return [_store accountWithIdentifier:identifier];
     }
     
-    ACAccount *account = [_accounts objectAtIndex:0];
-    [[NSUserDefaults standardUserDefaults] setObject:[account identifier] forKey:kDefaultAccountIdentifierKey];
+    ACAccount *account = _accounts[0];
+    defaults[kDefaultAccountIdentifierKey] = [account identifier];
     return account;
 }
 
@@ -52,12 +55,12 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
 - (IBAction)nextAccount:(id)sender{
     ACAccount *currentAccount = [self currentAccount];
     NSUInteger index = [_accounts indexOfObject:currentAccount] + 1;
-    if(index > [_accounts count]){
+    if(index >= [_accounts count]){
         index = 0;
     }
     
-    ACAccount *newAccount = [_accounts objectAtIndex:index];
-    [[NSUserDefaults standardUserDefaults] setObject:[newAccount identifier] forKey:kDefaultAccountIdentifierKey];
+    ACAccount *newAccount = _accounts[index];
+    [NSUserDefaults standardUserDefaults][kDefaultAccountIdentifierKey] = [newAccount identifier];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:GOAccountsDidChangeNotification object:nil];
     [self updateAccountIndicator];

@@ -8,6 +8,7 @@
 
 #import "GOTwitterUser.h"
 #import <Twitter/TWRequest.h>
+#import "NSDictionary+GODictionaryLiterals.h"
 
 @implementation GOTwitterUser
 
@@ -24,12 +25,12 @@ NSString *const kUserProfileURLStringKey = @"profile_image_url";
 }
 
 - (void)updateWithDictionary:(NSDictionary*)dict{
-    NSString *tagLineString = [dict objectForKey:kUserDescriptionKey];
+    NSString *tagLineString = dict[kUserDescriptionKey];
     if(![tagLineString isEqual:[NSNull null]]){
         self.tagline = tagLineString;
     }
     
-    NSString *screenName = [dict objectForKey:kUserScreennameKey];
+    NSString *screenName = dict[kUserScreennameKey];
     if(![screenName isEqual:[NSNull null]]){
         self.username = [NSString stringWithFormat:@"@%@", screenName];
     }
@@ -41,12 +42,12 @@ NSString *const kUserProfileURLStringKey = @"profile_image_url";
     }
     NSAssert(self.realName, @"NO REAL NAME!");
     
-    NSNumber *isFollowing = [dict objectForKey:kUserIsFollowingKey];
+    NSNumber *isFollowing = dict[kUserIsFollowingKey];
     if(isFollowing != nil && ![isFollowing isEqual:[NSNull null]]){
         self.following = [isFollowing boolValue];
     }
     
-    NSString *profileURLString = [dict objectForKey:kUserProfileURLStringKey];
+    NSString *profileURLString = dict[kUserProfileURLStringKey];
     if(profileURLString){
         self.profileImageURL = [NSURL URLWithString:profileURLString];
     }
@@ -98,11 +99,6 @@ NSString *const kUserProfileURLStringKey = @"profile_image_url";
     
     [request setAccount:account];
     [self handleRequest:request withBlock:block];
-}
-
-- (NSURL*)bigProfileImageURL{
-    NSString *string = [[self profileImageURL] absoluteString];
-    return [NSURL URLWithString:[string stringByReplacingOccurrencesOfString:@"_normal" withString:@""]];
 }
 
 @end

@@ -29,6 +29,10 @@
 		9BC7ADD41532466A00B256EC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADD31532466A00B256EC /* Accounts.framework */; };
 		9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD615324AAD00B256EC /* GODataSource.m */; };
 		9BC7ADDB15324F1400B256EC /* GOAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */; };
+		9BEB4C8D15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */; };
+		9BEB4C901532935A0006F2B4 /* NSArray+GOArrayLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C8F1532935A0006F2B4 /* NSArray+GOArrayLiterals.m */; };
+		9BEB4C93153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C92153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m */; };
+		9BEB4C97153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C96153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,14 @@
 		9BC7ADD615324AAD00B256EC /* GODataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODataSource.m; sourceTree = "<group>"; };
 		9BC7ADD815324F1400B256EC /* GOAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOAccountsViewController.h; sourceTree = "<group>"; };
 		9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOAccountsViewController.m; sourceTree = "<group>"; };
+		9BEB4C8B15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+GODictionaryLiterals.h"; sourceTree = "<group>"; };
+		9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCache+GODictionaryLiterals.m"; sourceTree = "<group>"; };
+		9BEB4C8E1532935A0006F2B4 /* NSArray+GOArrayLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GOArrayLiterals.h"; sourceTree = "<group>"; };
+		9BEB4C8F1532935A0006F2B4 /* NSArray+GOArrayLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GOArrayLiterals.m"; sourceTree = "<group>"; };
+		9BEB4C91153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GODictionaryLiterals.h"; sourceTree = "<group>"; };
+		9BEB4C92153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GODictionaryLiterals.m"; sourceTree = "<group>"; };
+		9BEB4C95153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+GODictionaryLiterals.h"; sourceTree = "<group>"; };
+		9BEB4C96153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+GODictionaryLiterals.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,10 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				9BA38237153269E70030F2A2 /* Image Loading */,
-				9B5E4D751532562F001EA717 /* EasyFollow.entitlements */,
-				9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */,
 				9BC7ADCB1532455400B256EC /* User Cell */,
 				9BC7ADDD15324F1A00B256EC /* Account Selector */,
+				9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */,
 				9BC7ADCC1532464400B256EC /* GOTwitterUser.h */,
 				9BC7ADCD1532464500B256EC /* GOTwitterUser.m */,
 				9BC7AD9F153243C700B256EC /* GOAppDelegate.h */,
@@ -165,6 +176,7 @@
 				9BC7ADA5153243C700B256EC /* GOSearchViewController.h */,
 				9BC7ADA6153243C700B256EC /* GOSearchViewController.m */,
 				9BC7AD97153243C700B256EC /* Supporting Files */,
+				9BEB4C94153294250006F2B4 /* Categories that should be deleted */,
 			);
 			path = EasyFollow;
 			sourceTree = "<group>";
@@ -172,6 +184,7 @@
 		9BC7AD97153243C700B256EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B5E4D751532562F001EA717 /* EasyFollow.entitlements */,
 				9BC7AD98153243C700B256EC /* EasyFollow-Info.plist */,
 				9BC7AD99153243C700B256EC /* InfoPlist.strings */,
 				9BC7AD9C153243C700B256EC /* main.m */,
@@ -216,6 +229,21 @@
 				9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */,
 			);
 			name = "Account Selector";
+			sourceTree = "<group>";
+		};
+		9BEB4C94153294250006F2B4 /* Categories that should be deleted */ = {
+			isa = PBXGroup;
+			children = (
+				9BEB4C8B15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.h */,
+				9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */,
+				9BEB4C8E1532935A0006F2B4 /* NSArray+GOArrayLiterals.h */,
+				9BEB4C8F1532935A0006F2B4 /* NSArray+GOArrayLiterals.m */,
+				9BEB4C91153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.h */,
+				9BEB4C92153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m */,
+				9BEB4C95153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.h */,
+				9BEB4C96153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m */,
+			);
+			name = "Categories that should be deleted";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +364,10 @@
 				9BC7ADDB15324F1400B256EC /* GOAccountsViewController.m in Sources */,
 				9BA38233153269D30030F2A2 /* GOHTTPOperation.m in Sources */,
 				9BA38236153269DF0030F2A2 /* GOImageCache.m in Sources */,
+				9BEB4C8D15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m in Sources */,
+				9BEB4C901532935A0006F2B4 /* NSArray+GOArrayLiterals.m in Sources */,
+				9BEB4C93153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m in Sources */,
+				9BEB4C97153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

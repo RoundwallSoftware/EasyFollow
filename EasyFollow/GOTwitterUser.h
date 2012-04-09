@@ -24,5 +24,5 @@ typedef void (^GOCompletionBlock)(void);
 
 - (void)followFromAccount:(ACAccount*)account andBlock:(GOCompletionBlock)block;
 - (void)unfollowFromAccount:(ACAccount*)account andBlock:(GOCompletionBlock)block;
-- (NSURL*)bigProfileImageURL;
+
 @end

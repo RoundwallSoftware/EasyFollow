@@ -7,6 +7,7 @@
 //
 
 #import "GODataSource.h"
+#import "NSArray+GOArrayLiterals.h"
 
 @interface GODataSource()
 @end
@@ -16,11 +17,11 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     _userCellNib = [UINib nibWithNibName:self.cellClassName bundle:nil];
-    self.results = [NSArray array];
+    self.results = @[];
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)path{
-    return [self.results objectAtIndex:path.row];
+    return self.results[path.row];
 }
 
 #pragma mark -

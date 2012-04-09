@@ -40,7 +40,10 @@
 
 - (void)viewDidUnload{
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
+    self.statusLabel = nil;
+    self.searchBar = nil;
+    self.dataSource = nil;
+    self.accountsController = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
