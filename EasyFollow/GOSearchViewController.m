@@ -54,6 +54,7 @@
 #pragma mark Actions
 
 - (void)becomeReady{
+    [self.accountsController setup];
     [self.accountsController updateAccountIndicator];
     self.statusLabel.text = NSLocalizedString(@"Search away!", @"Search controller is ready");
     [self.searchBar setUserInteractionEnabled:YES];

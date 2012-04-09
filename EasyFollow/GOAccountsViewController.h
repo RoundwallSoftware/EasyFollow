@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <Accounts/Accounts.h>
 
+typedef enum{
+    GOIndicatorDirectionLeft,
+    GOIndicatorDirectionRight,
+}GOIndicatorDirection;
+
 extern NSString *const GOAccountsDidChangeNotification;
 
 @interface GOAccountsViewController : UIViewController{
@@ -17,8 +22,13 @@ extern NSString *const GOAccountsDidChangeNotification;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *accountNameLabel;
+@property (nonatomic, retain) IBOutlet UIPageControl *pageControl;
 
+- (void)setup;
+
+- (IBAction)pageChanged:(id)sender;
 - (IBAction)nextAccount:(id)sender;
+- (IBAction)prevAccount:(id)sender;
 
 - (ACAccount*)currentAccount;
 - (void)updateAccountIndicator;
