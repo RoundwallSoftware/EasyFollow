@@ -8,7 +8,6 @@
 
 #import "GOTwitterUser.h"
 #import <Twitter/TWRequest.h>
-#import "GOImageCache.h"
 
 @implementation GOTwitterUser
 
@@ -51,10 +50,6 @@ NSString *const kUserProfileURLStringKey = @"profile_image_url";
     if(profileURLString){
         self.profileImageURL = [NSURL URLWithString:profileURLString];
     }
-}
-
-- (NSString*)userLine{
-    return [NSString stringWithFormat:@"%@ (%@)", [self realName], [self username]];
 }
 
 - (void)handleRequest:(TWRequest*)request withBlock:(GOCompletionBlock)block{

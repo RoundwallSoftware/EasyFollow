@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 SNAP Interactive. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 #import "GOAppDelegate.h"
 
 int main(int argc, char *argv[])

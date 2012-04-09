@@ -7,10 +7,8 @@
 //
 
 #import "GOSearchViewController.h"
-#import "GODataSource.h"
 #import "GOAccountsViewController.h"
 #import "GOTwitterUser.h"
-#import <Accounts/Accounts.h>
 #import <Twitter/Twitter.h>
 #import "GOUserCell.h"
 #import "GOImageCache.h"
