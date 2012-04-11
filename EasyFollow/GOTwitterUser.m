@@ -57,6 +57,9 @@ NSString *const kUserProfileURLStringKey = @"profile_image_url";
     [request performRequestWithHandler:^(NSData *__strong responseData, NSHTTPURLResponse *__strong urlResponse, NSError *__strong error) {
         if([urlResponse statusCode] != 200){
             NSLog(@"error %i, %@", [urlResponse statusCode], [error localizedDescription]);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block();
+            });
             return;
         }
         NSDictionary *returnedObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
@@ -65,8 +68,8 @@ NSString *const kUserProfileURLStringKey = @"profile_image_url";
                 NSLog(@"error %i, %@", [urlResponse statusCode], returnedObject);
             }else{
                 [self updateWithDictionary:returnedObject];
-                block();
             }
+            block();
         });
     }];
 }

@@ -130,6 +130,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [indicatorView setFrame:CGRectMake(0.0f, 0.0f, 30.0f, 30.0f)];
+    [indicatorView startAnimating];
+    cell.accessoryView = indicatorView;
+    
     GOCompletionBlock block = ^(void){
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     };
