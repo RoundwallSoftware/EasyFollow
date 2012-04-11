@@ -42,7 +42,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" id="nox-cA-OqI">
-                                        <rect key="frame" x="20" y="20" width="280" height="36"/>
+                                        <rect key="frame" x="20" y="21" width="280" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="pageChanged:" destination="1bR-Rn-fx7" eventType="valueChanged" id="gbJ-iK-m7Z"/>
@@ -108,7 +108,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-3" y="139"/>
+            <point key="canvasLocation" x="-198" y="139"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EFi-5F-tjo">
