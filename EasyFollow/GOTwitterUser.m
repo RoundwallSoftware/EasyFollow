@@ -18,6 +18,8 @@ NSString *const kUserNameKey = @"name";
 NSString *const kUserIsFollowingKey = @"following";
 NSString *const kUserProfileURLStringKey = @"profile_image_url";
 
+static NSInteger requestCount = 0;
+
 + (id)userWithDictionary:(NSDictionary*)dict{
     GOTwitterUser *user = [[self alloc] init];
     [user updateWithDictionary:dict];
@@ -54,7 +56,14 @@ NSString *const kUserProfileURLStringKey = @"profile_image_url";
 }
 
 - (void)handleRequest:(TWRequest*)request withBlock:(GOCompletionBlock)block{
+    requestCount++;
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [request performRequestWithHandler:^(NSData *__strong responseData, NSHTTPURLResponse *__strong urlResponse, NSError *__strong error) {
+        requestCount--;
+        if(requestCount <= 0){
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        }
+        
         if([urlResponse statusCode] != 200){
             NSLog(@"error %i, %@", [urlResponse statusCode], [error localizedDescription]);
             dispatch_async(dispatch_get_main_queue(), ^{
