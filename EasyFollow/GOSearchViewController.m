@@ -11,7 +11,7 @@
 #import "GOTwitterUser.h"
 #import <Twitter/Twitter.h>
 #import "GOUserCell.h"
-#import "GOImageCache.h"
+#import "JGAFImageCache.h"
 
 @interface GOSearchViewController ()
 - (void)becomeReady;
@@ -64,7 +64,7 @@
 - (void)configureCell:(UITableViewCell *)cell forTableView:(UITableView *)tableView andIndexPath:(NSIndexPath *)path{
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:path];
     if(!user.image){
-        [[GOImageCache sharedImageCache] getImageWithURL:[user profileImageURL] andCompletion:^(UIImage *image) {
+        [[JGAFImageCache sharedInstance] imageForURLString:[user profileImageURLString] completion:^(UIImage *image) {
             user.image = image;
             GOUserCell *currentCell = (GOUserCell*)[tableView cellForRowAtIndexPath:path];
             [currentCell setProfileImage:image];
@@ -141,9 +141,9 @@
     };
     
     if(user.isFollowing){
-        [user unfollowFromAccount:[self.accountsController currentAccount] andBlock:block];
+        [user unfollowFromAccount:[self.accountsController currentAccount] completion:block];
     }else{
-        [user followFromAccount:[self.accountsController currentAccount] andBlock:block];
+        [user followFromAccount:[self.accountsController currentAccount] completion:block];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9BA38233153269D30030F2A2 /* GOHTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA38231153269D30030F2A2 /* GOHTTPOperation.m */; };
-		9BA38236153269DF0030F2A2 /* GOImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA38234153269DF0030F2A2 /* GOImageCache.m */; };
+		7B89A8E4886B4300B76B059B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F73A3078744104822D5EC4 /* libPods.a */; };
+		9B47DF4A171B8B3F0083D7AE /* JGAFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B47DF46171B8B3F0083D7AE /* JGAFImageCache.m */; };
+		9B47DF4B171B8B3F0083D7AE /* NSString+JGAFSHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B47DF48171B8B3F0083D7AE /* NSString+JGAFSHA1.m */; };
+		9B47DF4C171B8B3F0083D7AE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B47DF49171B8B3F0083D7AE /* README.md */; };
+		9B47DF4F171B8B760083D7AE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47DF4E171B8B760083D7AE /* SystemConfiguration.framework */; };
+		9B47DF51171B8B8A0083D7AE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */; };
+		9BC7A72F171998CC00F9667F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7A72E171998CC00F9667F /* Default-568h@2x.png */; };
 		9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
 		9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
 		9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD94153243C700B256EC /* CoreGraphics.framework */; };
@@ -46,11 +51,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57F73A3078744104822D5EC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F9A31E86A214BC0B8FBAF80 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		9B47DF45171B8B3F0083D7AE /* JGAFImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAFImageCache.h; sourceTree = "<group>"; };
+		9B47DF46171B8B3F0083D7AE /* JGAFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAFImageCache.m; sourceTree = "<group>"; };
+		9B47DF47171B8B3F0083D7AE /* NSString+JGAFSHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JGAFSHA1.h"; sourceTree = "<group>"; };
+		9B47DF48171B8B3F0083D7AE /* NSString+JGAFSHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JGAFSHA1.m"; sourceTree = "<group>"; };
+		9B47DF49171B8B3F0083D7AE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		9B47DF4E171B8B760083D7AE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9B5E4D751532562F001EA717 /* EasyFollow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EasyFollow.entitlements; sourceTree = "<group>"; };
-		9BA38231153269D30030F2A2 /* GOHTTPOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GOHTTPOperation.m; path = ../../GOHTTPOperation/GOHTTPOperation/GOHTTPOperation.m; sourceTree = "<group>"; };
-		9BA38232153269D30030F2A2 /* GOHTTPOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GOHTTPOperation.h; path = ../../GOHTTPOperation/GOHTTPOperation/GOHTTPOperation.h; sourceTree = "<group>"; };
-		9BA38234153269DF0030F2A2 /* GOImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GOImageCache.m; path = ../../GOImageCache/GOImageCache/GOImageCache.m; sourceTree = "<group>"; };
-		9BA38235153269DF0030F2A2 /* GOImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GOImageCache.h; path = ../../GOImageCache/GOImageCache/GOImageCache.h; sourceTree = "<group>"; };
+		9BC7A72E171998CC00F9667F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9BC7AD8C153243C700B256EC /* EasyFollow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFollow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC7AD90153243C700B256EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9BC7AD92153243C700B256EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,11 +107,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B47DF51171B8B8A0083D7AE /* MobileCoreServices.framework in Frameworks */,
+				9B47DF4F171B8B760083D7AE /* SystemConfiguration.framework in Frameworks */,
 				9BC7ADD41532466A00B256EC /* Accounts.framework in Frameworks */,
 				9BC7ADD21532466700B256EC /* Twitter.framework in Frameworks */,
 				9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */,
 				9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */,
 				9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */,
+				7B89A8E4886B4300B76B059B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,24 +131,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9BA38237153269E70030F2A2 /* Image Loading */ = {
+		9B47DF44171B8B3F0083D7AE /* JGAFImageCache */ = {
 			isa = PBXGroup;
 			children = (
-				9BA38235153269DF0030F2A2 /* GOImageCache.h */,
-				9BA38234153269DF0030F2A2 /* GOImageCache.m */,
-				9BA38232153269D30030F2A2 /* GOHTTPOperation.h */,
-				9BA38231153269D30030F2A2 /* GOHTTPOperation.m */,
+				9B47DF45171B8B3F0083D7AE /* JGAFImageCache.h */,
+				9B47DF46171B8B3F0083D7AE /* JGAFImageCache.m */,
+				9B47DF47171B8B3F0083D7AE /* NSString+JGAFSHA1.h */,
+				9B47DF48171B8B3F0083D7AE /* NSString+JGAFSHA1.m */,
+				9B47DF49171B8B3F0083D7AE /* README.md */,
 			);
-			name = "Image Loading";
+			path = JGAFImageCache;
 			sourceTree = "<group>";
 		};
 		9BC7AD81153243C600B256EC = {
 			isa = PBXGroup;
 			children = (
+				9BC7A72E171998CC00F9667F /* Default-568h@2x.png */,
 				9BC7AD96153243C700B256EC /* EasyFollow */,
 				9BC7ADB4153243C700B256EC /* EasyFollowTests */,
 				9BC7AD8F153243C700B256EC /* Frameworks */,
 				9BC7AD8D153243C700B256EC /* Products */,
+				8F9A31E86A214BC0B8FBAF80 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,12 +167,15 @@
 		9BC7AD8F153243C700B256EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */,
+				9B47DF4E171B8B760083D7AE /* SystemConfiguration.framework */,
 				9BC7ADD31532466A00B256EC /* Accounts.framework */,
 				9BC7ADD11532466700B256EC /* Twitter.framework */,
 				9BC7AD90153243C700B256EC /* UIKit.framework */,
 				9BC7AD92153243C700B256EC /* Foundation.framework */,
 				9BC7AD94153243C700B256EC /* CoreGraphics.framework */,
 				9BC7ADAE153243C700B256EC /* SenTestingKit.framework */,
+				57F73A3078744104822D5EC4 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,7 +183,7 @@
 		9BC7AD96153243C700B256EC /* EasyFollow */ = {
 			isa = PBXGroup;
 			children = (
-				9BA38237153269E70030F2A2 /* Image Loading */,
+				9B47DF44171B8B3F0083D7AE /* JGAFImageCache */,
 				9BC7ADCB1532455400B256EC /* User Cell */,
 				9BC7ADDD15324F1A00B256EC /* Account Selector */,
 				9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */,
@@ -256,6 +276,7 @@
 				9BC7AD88153243C700B256EC /* Sources */,
 				9BC7AD89153243C700B256EC /* Frameworks */,
 				9BC7AD8A153243C700B256EC /* Resources */,
+				3C58679FF4E44EE6BABCF247 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -292,7 +313,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = GO;
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Goodwinlabs LLC";
 			};
 			buildConfigurationList = 9BC7AD86153243C600B256EC /* Build configuration list for PBXProject "EasyFollow" */;
@@ -321,6 +342,8 @@
 				9BC7AD9B153243C700B256EC /* InfoPlist.strings in Resources */,
 				9BC7ADA4153243C700B256EC /* MainStoryboard.storyboard in Resources */,
 				9BC7ADC81532454600B256EC /* GOUserCell.xib in Resources */,
+				9BC7A72F171998CC00F9667F /* Default-568h@2x.png in Resources */,
+				9B47DF4C171B8B3F0083D7AE /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +358,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3C58679FF4E44EE6BABCF247 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		9BC7ADAB153243C700B256EC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,12 +399,12 @@
 				9BC7ADD01532465300B256EC /* GOTwitterUser.m in Sources */,
 				9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */,
 				9BC7ADDB15324F1400B256EC /* GOAccountsViewController.m in Sources */,
-				9BA38233153269D30030F2A2 /* GOHTTPOperation.m in Sources */,
-				9BA38236153269DF0030F2A2 /* GOImageCache.m in Sources */,
 				9BEB4C8D15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m in Sources */,
 				9BEB4C901532935A0006F2B4 /* NSArray+GOArrayLiterals.m in Sources */,
 				9BEB4C93153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m in Sources */,
 				9BEB4C97153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m in Sources */,
+				9B47DF4A171B8B3F0083D7AE /* JGAFImageCache.m in Sources */,
+				9B47DF4B171B8B3F0083D7AE /* NSString+JGAFSHA1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +460,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -449,6 +489,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -466,6 +509,7 @@
 		};
 		9BC7ADC0153243C700B256EC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F9A31E86A214BC0B8FBAF80 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -489,6 +533,7 @@
 		};
 		9BC7ADC1153243C700B256EC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F9A31E86A214BC0B8FBAF80 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = EasyFollow/EasyFollow.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

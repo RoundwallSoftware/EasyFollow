@@ -51,11 +51,11 @@ static NSInteger requestCount = 0;
     
     NSString *profileURLString = dict[kUserProfileURLStringKey];
     if(profileURLString){
-        self.profileImageURL = [NSURL URLWithString:profileURLString];
+        self.profileImageURLString = profileURLString;
     }
 }
 
-- (void)handleRequest:(TWRequest*)request withBlock:(GOCompletionBlock)block{
+- (void)handleRequest:(TWRequest*)request block:(GOCompletionBlock)block{
     requestCount++;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [request performRequestWithHandler:^(NSData *__strong responseData, NSHTTPURLResponse *__strong urlResponse, NSError *__strong error) {
@@ -83,7 +83,7 @@ static NSInteger requestCount = 0;
     }];
 }
 
-- (void)followFromAccount:(ACAccount*)account andBlock:(GOCompletionBlock)block{
+- (void)followFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block{
     if([self isFollowing]){
         return;
     }
@@ -95,10 +95,10 @@ static NSInteger requestCount = 0;
     TWRequest *request = [[TWRequest alloc] initWithURL:url parameters:params requestMethod:TWRequestMethodPOST];
     
     [request setAccount:account];
-    [self handleRequest:request withBlock:block];
+    [self handleRequest:request block:block];
 }
 
-- (void)unfollowFromAccount:(ACAccount*)account andBlock:(GOCompletionBlock)block{
+- (void)unfollowFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block{
     if(![self isFollowing]){
         return;
     }
@@ -110,7 +110,7 @@ static NSInteger requestCount = 0;
     TWRequest *request = [[TWRequest alloc] initWithURL:url parameters:params requestMethod:TWRequestMethodPOST];
     
     [request setAccount:account];
-    [self handleRequest:request withBlock:block];
+    [self handleRequest:request block:block];
 }
 
 @end

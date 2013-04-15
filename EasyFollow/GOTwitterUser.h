@@ -16,13 +16,13 @@ typedef void (^GOCompletionBlock)(void);
 @property(nonatomic, copy) NSString *realName;
 @property(nonatomic, copy) NSString *tagline;
 @property(nonatomic, retain) UIImage *image;
-@property(nonatomic, retain) NSURL *profileImageURL;
+@property(nonatomic, retain) NSString *profileImageURLString;
 @property(nonatomic, assign, getter=isFollowing) BOOL following;
 
 + (id)userWithDictionary:(NSDictionary*)dict;
 - (void)updateWithDictionary:(NSDictionary*)dict;
 
-- (void)followFromAccount:(ACAccount*)account andBlock:(GOCompletionBlock)block;
-- (void)unfollowFromAccount:(ACAccount*)account andBlock:(GOCompletionBlock)block;
+- (void)followFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block;
+- (void)unfollowFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block;
 
 @end
