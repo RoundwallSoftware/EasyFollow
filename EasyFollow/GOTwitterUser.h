@@ -22,6 +22,8 @@ typedef void (^GOCompletionBlock)(void);
 + (id)userWithDictionary:(NSDictionary*)dict;
 - (void)updateWithDictionary:(NSDictionary*)dict;
 
+- (NSAttributedString *)followingStatus;
+
 - (void)followFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block;
 - (void)unfollowFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block;
 

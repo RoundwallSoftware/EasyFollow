@@ -55,6 +55,20 @@ static NSInteger requestCount = 0;
     }
 }
 
+- (NSAttributedString *)followingStatus
+{
+    NSMutableAttributedString *text = nil;
+    
+    if([self isFollowing]){
+        text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Following", @"Following status label")];
+        [text addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0, [text length])];
+    }else{
+        text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Not Following", @"Not-Following status label")];
+        [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, [text length])];
+    }
+    return text;
+}
+
 - (void)handleRequest:(SLRequest*)request block:(GOCompletionBlock)block{
     requestCount++;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];

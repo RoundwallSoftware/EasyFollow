@@ -45,14 +45,6 @@
     }];
 }
 
-- (void)viewDidUnload{
-    [super viewDidUnload];
-    self.statusLabel = nil;
-    self.searchBar = nil;
-    self.dataSource = nil;
-    self.accountsController = nil;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
@@ -63,7 +55,6 @@
 - (void)becomeReady{
     [self.accountsController setup];
     [self.accountsController updateAccountIndicator];
-    self.statusLabel.text = NSLocalizedString(@"Search away!", @"Search controller is ready");
     [self.searchBar setUserInteractionEnabled:YES];
     [self.searchBar becomeFirstResponder];
 }
@@ -72,9 +63,30 @@
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:path];
     if(!user.image){
         [[JGAFImageCache sharedInstance] imageForURLString:[user profileImageURLString] completion:^(UIImage *image) {
-            user.image = image;
-            GOUserCell *currentCell = (GOUserCell*)[tableView cellForRowAtIndexPath:path];
-            [currentCell setProfileImage:image];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                // Begin a new image that will be the new image with the rounded corners
+                // (here with the size of an UIImageView)
+                UIGraphicsBeginImageContextWithOptions(image.size, NO, 1.0f);
+                
+                // Add a clip before drawing anything, in the shape of an rounded rect
+                CGRect rect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+                [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:10.0f] addClip];
+                // Draw your image
+                [image drawInRect:rect];
+                
+                // Get the image, here setting the UIImageView image
+                UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+                
+                // Lets forget about that we were drawing
+                UIGraphicsEndImageContext();
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    user.image = newImage;
+                    GOUserCell *currentCell = (GOUserCell*)[tableView cellForRowAtIndexPath:path];
+                    [currentCell setProfileImage:newImage];
+                });
+            });
         }];
     }
     [(GOUserCell*)cell updateForUser:user];
@@ -161,6 +173,11 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
     return NO;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70.0f;
 }
 
 @end

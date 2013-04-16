@@ -16,11 +16,7 @@
     self.nameLabel.text = [user realName];
     self.screennameLabel.text = [user username];
     
-    if([user isFollowing]){
-        self.accessoryType = UITableViewCellAccessoryCheckmark;
-    }else{
-        self.accessoryType = UITableViewCellAccessoryNone;
-    }
+    self.statusLabel.attributedText = [user followingStatus];
     
     [self setProfileImage:[user image]];
 }

@@ -14,6 +14,7 @@
 @property(nonatomic, retain) IBOutlet UIImageView *profileImageView;
 @property(nonatomic, retain) IBOutlet UILabel *nameLabel;
 @property(nonatomic, retain) IBOutlet UILabel *screennameLabel;
+@property(nonatomic, retain) IBOutlet UILabel *statusLabel;
 
 - (void)updateForUser:(GOTwitterUser*)user;
 - (void)setProfileImage:(UIImage*)image;
