@@ -9,11 +9,12 @@
 #import "GOSearchViewController.h"
 #import "GOAccountsViewController.h"
 #import "GOTwitterUser.h"
-#import <Twitter/Twitter.h>
+#import <Social/Social.h>
 #import "GOUserCell.h"
 #import "JGAFImageCache.h"
 
 @interface GOSearchViewController ()
+@property (nonatomic, strong) SLRequest *searchRequest;
 - (void)becomeReady;
 - (void)accountsDidChange:(NSNotification *)notification;
 @end
@@ -26,7 +27,7 @@
     
     ACAccountStore *store = [[ACAccountStore alloc] init];
     ACAccountType *type = [store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    [store requestAccessToAccountsWithType:type withCompletionHandler:^(BOOL granted, NSError *__strong error) {
+    [store requestAccessToAccountsWithType:type options:nil completion:^(BOOL granted, NSError *error) {
         NSArray *accounts = [store accountsWithAccountType:type];
         dispatch_async(dispatch_get_main_queue(), ^{
             if(!granted || accounts == nil || [accounts count] == 0){
@@ -84,17 +85,18 @@
     if(!term || [term length] == 0){
         return;
     }
+    
     [self.dataSource setResults:[NSArray array]];
     [self.searchDisplayController.searchResultsTableView reloadData];
     
     NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1/users/search.json"];
     NSDictionary *params = @{@"q":term};
     
-    TWRequest *request = [[TWRequest alloc] initWithURL:url parameters:params requestMethod:TWRequestMethodGET];
+    self.searchRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:params];
     ACAccount *currentAccount = [self.accountsController currentAccount];
-    [request setAccount:currentAccount];
+    [self.searchRequest setAccount:currentAccount];
     
-    [request performRequestWithHandler:^(NSData *__strong responseData, NSHTTPURLResponse *__strong urlResponse, NSError *__strong error) {
+    [self.searchRequest performRequestWithHandler:^(NSData *__strong responseData, NSHTTPURLResponse *__strong urlResponse, NSError *__strong error) {
         if([urlResponse statusCode] != 200){
             NSLog(@"error %i, %@", [urlResponse statusCode], [error localizedDescription]);
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -110,9 +112,9 @@
             GOTwitterUser *user = [GOTwitterUser userWithDictionary:obj];
             [newResults addObject:user];
         }];
-        [self.dataSource setResults:newResults];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.dataSource setResults:newResults];
             [self.searchDisplayController.searchResultsTableView reloadData];
         });
     }];

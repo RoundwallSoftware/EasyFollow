@@ -13,6 +13,7 @@
 		9B47DF4C171B8B3F0083D7AE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B47DF49171B8B3F0083D7AE /* README.md */; };
 		9B47DF4F171B8B760083D7AE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47DF4E171B8B760083D7AE /* SystemConfiguration.framework */; };
 		9B47DF51171B8B8A0083D7AE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */; };
+		9B47DF54171B8ED80083D7AE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47DF53171B8ED80083D7AE /* Social.framework */; };
 		9BC7A72F171998CC00F9667F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7A72E171998CC00F9667F /* Default-568h@2x.png */; };
 		9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
 		9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
@@ -30,7 +31,6 @@
 		9BC7ADC81532454600B256EC /* GOUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7ADC51532454600B256EC /* GOUserCell.xib */; };
 		9BC7ADC91532454600B256EC /* GOUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADC71532454600B256EC /* GOUserCell.m */; };
 		9BC7ADD01532465300B256EC /* GOTwitterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADCD1532464500B256EC /* GOTwitterUser.m */; };
-		9BC7ADD21532466700B256EC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADD11532466700B256EC /* Twitter.framework */; };
 		9BC7ADD41532466A00B256EC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADD31532466A00B256EC /* Accounts.framework */; };
 		9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD615324AAD00B256EC /* GODataSource.m */; };
 		9BC7ADDB15324F1400B256EC /* GOAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */; };
@@ -60,6 +60,7 @@
 		9B47DF49171B8B3F0083D7AE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		9B47DF4E171B8B760083D7AE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		9B47DF53171B8ED80083D7AE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9B5E4D751532562F001EA717 /* EasyFollow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EasyFollow.entitlements; sourceTree = "<group>"; };
 		9BC7A72E171998CC00F9667F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9BC7AD8C153243C700B256EC /* EasyFollow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFollow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,10 +108,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B47DF54171B8ED80083D7AE /* Social.framework in Frameworks */,
 				9B47DF51171B8B8A0083D7AE /* MobileCoreServices.framework in Frameworks */,
 				9B47DF4F171B8B760083D7AE /* SystemConfiguration.framework in Frameworks */,
 				9BC7ADD41532466A00B256EC /* Accounts.framework in Frameworks */,
-				9BC7ADD21532466700B256EC /* Twitter.framework in Frameworks */,
 				9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */,
 				9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */,
 				9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */,
@@ -167,6 +168,7 @@
 		9BC7AD8F153243C700B256EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B47DF53171B8ED80083D7AE /* Social.framework */,
 				9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */,
 				9B47DF4E171B8B760083D7AE /* SystemConfiguration.framework */,
 				9BC7ADD31532466A00B256EC /* Accounts.framework */,
@@ -515,6 +517,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EasyFollow/EasyFollow-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
@@ -525,6 +528,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "EasyFollow/EasyFollow-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
@@ -539,6 +543,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EasyFollow/EasyFollow-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
@@ -549,6 +554,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				INFOPLIST_FILE = "EasyFollow/EasyFollow-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;

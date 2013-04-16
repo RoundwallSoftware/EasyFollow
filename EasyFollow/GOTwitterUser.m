@@ -55,7 +55,7 @@ static NSInteger requestCount = 0;
     }
 }
 
-- (void)handleRequest:(TWRequest*)request block:(GOCompletionBlock)block{
+- (void)handleRequest:(SLRequest*)request block:(GOCompletionBlock)block{
     requestCount++;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [request performRequestWithHandler:^(NSData *__strong responseData, NSHTTPURLResponse *__strong urlResponse, NSError *__strong error) {
@@ -92,7 +92,7 @@ static NSInteger requestCount = 0;
         @"screen_name":[self username],
         @"skip_status":@"t"
     };
-    TWRequest *request = [[TWRequest alloc] initWithURL:url parameters:params requestMethod:TWRequestMethodPOST];
+    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:url parameters:params];
     
     [request setAccount:account];
     [self handleRequest:request block:block];
@@ -107,7 +107,7 @@ static NSInteger requestCount = 0;
         @"screen_name":[self username],
         @"skip_status":@"t"
     };
-    TWRequest *request = [[TWRequest alloc] initWithURL:url parameters:params requestMethod:TWRequestMethodPOST];
+    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:url parameters:params];
     
     [request setAccount:account];
     [self handleRequest:request block:block];
