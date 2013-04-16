@@ -8,6 +8,7 @@
 
 #import "GOAccountsViewController.h"
 #import "NSUserDefaults+GODictionaryLiterals.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface GOAccountsViewController()
 - (NSUInteger)indexOfAccount:(ACAccount*)account;
@@ -27,6 +28,15 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
     
     [self.pageControl setNumberOfPages:[_accounts count]];
     [self.pageControl setCurrentPage:[self indexOfAccount:[self currentAccount]]];
+    
+    UILabel *label = self.accountNameLabel;
+    label.textColor = [UIColor colorWithRed:0.831f green:0.831f blue:0.831f alpha: 1.0f];
+    
+    CALayer *layer = label.layer;
+    layer.shadowColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f].CGColor;
+    layer.shadowOffset = CGSizeMake(0.1f, 2.1f);
+    layer.shadowRadius = 1.0f;
+
 }
 
 - (void)setupEmpty
