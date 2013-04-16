@@ -9,6 +9,7 @@
 #import "GODataSource.h"
 
 @interface GODataSource()
+@property (nonatomic, assign, getter = isEmpty) BOOL empty;
 @end
 
 @implementation GODataSource
@@ -16,7 +17,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     _userCellNib = [UINib nibWithNibName:self.cellClassName bundle:nil];
-    self.results = @[];
+    self.results = nil;
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)path{
@@ -26,12 +27,22 @@
     return nil;
 }
 
+- (void)setResults:(NSArray *)results
+{
+    if(results != nil && [results count] == 0){
+        self.empty = YES;
+    }else{
+        self.empty = NO;
+    }
+    _results = results;
+}
+
 #pragma mark -
 #pragma mark Table Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger count = [self.results count];
-    if(count == 0){
+    if(count == 0 && ![self isEmpty]){
         count = 1;
     }
     return count;

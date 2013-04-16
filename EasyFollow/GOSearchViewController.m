@@ -109,7 +109,7 @@
         return;
     }
     
-    [self.dataSource setResults:[NSArray array]];
+    [self.dataSource setResults:nil];
     [self.searchDisplayController.searchResultsTableView reloadData];
     
     NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/users/search.json"];
@@ -210,7 +210,7 @@
 #pragma mark UISearchDisplayDelegate
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
-    [self.dataSource setResults:[NSArray array]];
+    [self.dataSource setResults:nil];
     [self.searchDisplayController.searchResultsTableView reloadData];
     return NO;
 }
