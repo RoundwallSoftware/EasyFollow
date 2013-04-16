@@ -25,6 +25,7 @@ extern NSString *const GOAccountsDidChangeNotification;
 @property (nonatomic, retain) IBOutlet UIPageControl *pageControl;
 
 - (void)setup;
+- (void)setupEmpty;
 
 - (IBAction)pageChanged:(id)sender;
 - (IBAction)nextAccount:(id)sender;

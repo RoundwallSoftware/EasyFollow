@@ -12,6 +12,7 @@
 
 @interface GOAccountsViewController()
 - (NSUInteger)indexOfAccount:(ACAccount*)account;
+@property (nonatomic, assign, getter=isEmpty) BOOL empty;
 @end
 
 NSString *const GOAccountsDidChangeNotification = @"omgtheaccountchanged!";
@@ -27,6 +28,15 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
     
     [self.pageControl setNumberOfPages:[_accounts count]];
     [self.pageControl setCurrentPage:[self indexOfAccount:[self currentAccount]]];
+}
+
+- (void)setupEmpty
+{
+    _accounts = @[NSLocalizedString(@"No Accounts", @"Label for no accounts remaining.")];
+    self.empty = YES;
+    
+    [self.pageControl setNumberOfPages:1];
+    [self.pageControl setCurrentPage:0];
 }
 
 - (void)viewDidLoad{
@@ -51,6 +61,10 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
 }
 
 - (ACAccount*)currentAccount{
+    if([self isEmpty]){
+        return nil;
+    }
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *identifier = defaults[kDefaultAccountIdentifierKey];
     if(identifier){
@@ -58,13 +72,18 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
     }
     
     ACAccount *account = _accounts[0];
+    
     defaults[kDefaultAccountIdentifierKey] = [account identifier];
     return account;
 }
 
 - (void)updateAccountIndicator{
     ACAccount *currentAccount = [self currentAccount];
-    self.accountNameLabel.text = [currentAccount username];
+    if([self isEmpty]){
+        self.accountNameLabel.text = (NSString *)currentAccount;
+    }else{
+        self.accountNameLabel.text = [currentAccount username];
+    }
 }
 
 - (void)animatedIndicator:(GOIndicatorDirection)direction{
@@ -103,6 +122,10 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
 }
 
 - (IBAction)nextAccount:(id)sender{
+    if([self isEmpty]){
+        return;
+    }
+    
     ACAccount *currentAccount = [self currentAccount];
     NSUInteger index = [self indexOfAccount:currentAccount] + 1;
     if(index >= [_accounts count]){
@@ -118,6 +141,10 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
 }
 
 - (IBAction)prevAccount:(id)sender{
+    if([self isEmpty]){
+        return;
+    }
+    
     ACAccount *currentAccount = [self currentAccount];
     NSUInteger index = [self indexOfAccount:currentAccount];
     if(index == 0){

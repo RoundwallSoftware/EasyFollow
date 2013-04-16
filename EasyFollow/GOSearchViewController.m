@@ -31,7 +31,13 @@
         NSArray *accounts = [store accountsWithAccountType:type];
         dispatch_async(dispatch_get_main_queue(), ^{
             if(!granted || accounts == nil || [accounts count] == 0){
-                [self performSegueWithIdentifier:@"toInfo" sender:self];
+                NSString *title = NSLocalizedString(@"Sorry", @"Alert title for when we don't have twitter access.");
+                NSString *message = NSLocalizedString(@"We cannot do anything without access to one of your twitter accounts.", @"Alert message when we don't have twitter access.");
+                                                      
+                [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Alert button title.") otherButtonTitles:nil] show];
+                
+                [self.accountsController setupEmpty];
+                [self.accountsController updateAccountIndicator];
             }else{
                 [self becomeReady];
             }

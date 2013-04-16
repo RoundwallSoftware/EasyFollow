@@ -62,7 +62,7 @@
 		9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9B47DF53171B8ED80083D7AE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9B5E4D751532562F001EA717 /* EasyFollow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EasyFollow.entitlements; sourceTree = "<group>"; };
-		9BC7A72E171998CC00F9667F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9BC7A72E171998CC00F9667F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		9BC7AD8C153243C700B256EC /* EasyFollow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFollow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC7AD90153243C700B256EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9BC7AD92153243C700B256EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -147,7 +147,6 @@
 		9BC7AD81153243C600B256EC = {
 			isa = PBXGroup;
 			children = (
-				9BC7A72E171998CC00F9667F /* Default-568h@2x.png */,
 				9BC7AD96153243C700B256EC /* EasyFollow */,
 				9BC7ADB4153243C700B256EC /* EasyFollowTests */,
 				9BC7AD8F153243C700B256EC /* Frameworks */,
@@ -206,6 +205,7 @@
 		9BC7AD97153243C700B256EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9BC7A72E171998CC00F9667F /* Default-568h@2x.png */,
 				9B5E4D751532562F001EA717 /* EasyFollow.entitlements */,
 				9BC7AD98153243C700B256EC /* EasyFollow-Info.plist */,
 				9BC7AD99153243C700B256EC /* InfoPlist.strings */,
