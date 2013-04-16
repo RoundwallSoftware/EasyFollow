@@ -14,6 +14,7 @@
 		9B47DF4F171B8B760083D7AE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47DF4E171B8B760083D7AE /* SystemConfiguration.framework */; };
 		9B47DF51171B8B8A0083D7AE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */; };
 		9B47DF54171B8ED80083D7AE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47DF53171B8ED80083D7AE /* Social.framework */; };
+		9B51934A171DC0B900353EDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B51934C171DC0B900353EDE /* Localizable.strings */; };
 		9B8995A6171DB0360038096D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8995A5171DB0360038096D /* Default-568h@2x.png */; };
 		9B8995A8171DB0390038096D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8995A7171DB0390038096D /* Default.png */; };
 		9B8995AA171DB03B0038096D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8995A9171DB03B0038096D /* Default@2x.png */; };
@@ -26,7 +27,6 @@
 		9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
 		9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
 		9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD94153243C700B256EC /* CoreGraphics.framework */; };
-		9BC7AD9B153243C700B256EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7AD99153243C700B256EC /* InfoPlist.strings */; };
 		9BC7AD9D153243C700B256EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7AD9C153243C700B256EC /* main.m */; };
 		9BC7ADA1153243C700B256EC /* GOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADA0153243C700B256EC /* GOAppDelegate.m */; };
 		9BC7ADA4153243C700B256EC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */; };
@@ -34,7 +34,6 @@
 		9BC7ADAF153243C700B256EC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADAE153243C700B256EC /* SenTestingKit.framework */; };
 		9BC7ADB0153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
 		9BC7ADB1153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
-		9BC7ADB9153243C700B256EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7ADB7153243C700B256EC /* InfoPlist.strings */; };
 		9BC7ADBC153243C700B256EC /* EasyFollowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADBB153243C700B256EC /* EasyFollowTests.m */; };
 		9BC7ADC81532454600B256EC /* GOUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7ADC51532454600B256EC /* GOUserCell.xib */; };
 		9BC7ADC91532454600B256EC /* GOUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADC71532454600B256EC /* GOUserCell.m */; };
@@ -67,6 +66,11 @@
 		9B47DF4E171B8B760083D7AE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9B47DF53171B8ED80083D7AE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		9B519340171DBE9A00353EDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		9B519349171DC0B300353EDE /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
+		9B51934B171DC0B900353EDE /* nl */ = {isa = PBXFileReference; lastKnownFileType = file; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9B51934D171DC1DB00353EDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
+		9B51934E171DC1DB00353EDE /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B5E4D751532562F001EA717 /* EasyFollow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EasyFollow.entitlements; sourceTree = "<group>"; };
 		9B8995A5171DB0360038096D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		9B8995A7171DB0390038096D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -82,18 +86,15 @@
 		9BC7AD92153243C700B256EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9BC7AD94153243C700B256EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9BC7AD98153243C700B256EC /* EasyFollow-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyFollow-Info.plist"; sourceTree = "<group>"; };
-		9BC7AD9A153243C700B256EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9BC7AD9C153243C700B256EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9BC7AD9E153243C700B256EC /* EasyFollow-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyFollow-Prefix.pch"; sourceTree = "<group>"; };
 		9BC7AD9F153243C700B256EC /* GOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GOAppDelegate.h; sourceTree = "<group>"; };
 		9BC7ADA0153243C700B256EC /* GOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GOAppDelegate.m; sourceTree = "<group>"; };
-		9BC7ADA3153243C700B256EC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9BC7ADA5153243C700B256EC /* GOSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GOSearchViewController.h; sourceTree = "<group>"; };
 		9BC7ADA6153243C700B256EC /* GOSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GOSearchViewController.m; sourceTree = "<group>"; };
 		9BC7ADAD153243C700B256EC /* EasyFollowTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyFollowTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC7ADAE153243C700B256EC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9BC7ADB6153243C700B256EC /* EasyFollowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyFollowTests-Info.plist"; sourceTree = "<group>"; };
-		9BC7ADB8153243C700B256EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9BC7ADBA153243C700B256EC /* EasyFollowTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyFollowTests.h; sourceTree = "<group>"; };
 		9BC7ADBB153243C700B256EC /* EasyFollowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyFollowTests.m; sourceTree = "<group>"; };
 		9BC7ADC51532454600B256EC /* GOUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GOUserCell.xib; sourceTree = "<group>"; };
@@ -193,6 +194,7 @@
 		9BC7AD96153243C700B256EC /* EasyFollow */ = {
 			isa = PBXGroup;
 			children = (
+				9B51934C171DC0B900353EDE /* Localizable.strings */,
 				9B47DF44171B8B3F0083D7AE /* JGAFImageCache */,
 				9BC7ADCB1532455400B256EC /* User Cell */,
 				9BC7ADDD15324F1A00B256EC /* Account Selector */,
@@ -226,7 +228,6 @@
 				8F9A31E86A214BC0B8FBAF80 /* Pods.xcconfig */,
 				9B5E4D751532562F001EA717 /* EasyFollow.entitlements */,
 				9BC7AD98153243C700B256EC /* EasyFollow-Info.plist */,
-				9BC7AD99153243C700B256EC /* InfoPlist.strings */,
 				9BC7AD9C153243C700B256EC /* main.m */,
 				9BC7AD9E153243C700B256EC /* EasyFollow-Prefix.pch */,
 			);
@@ -247,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				9BC7ADB6153243C700B256EC /* EasyFollowTests-Info.plist */,
-				9BC7ADB7153243C700B256EC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -338,6 +338,10 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				nl,
+				de,
+				fr,
+				Base,
 			);
 			mainGroup = 9BC7AD81153243C600B256EC;
 			productRefGroup = 9BC7AD8D153243C700B256EC /* Products */;
@@ -355,7 +359,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BC7AD9B153243C700B256EC /* InfoPlist.strings in Resources */,
 				9BC7ADA4153243C700B256EC /* MainStoryboard.storyboard in Resources */,
 				9BC7ADC81532454600B256EC /* GOUserCell.xib in Resources */,
 				9B47DF4C171B8B3F0083D7AE /* README.md in Resources */,
@@ -368,6 +371,7 @@
 				9B8995B4171DB0510038096D /* Icon-Small@2x.png in Resources */,
 				9B8995B5171DB0510038096D /* UINavigationBar.png in Resources */,
 				9B8995B6171DB0510038096D /* UINavigationBar@2x.png in Resources */,
+				9B51934A171DC0B900353EDE /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +379,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BC7ADB9153243C700B256EC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,28 +452,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9BC7AD99153243C700B256EC /* InfoPlist.strings */ = {
+		9B51934C171DC0B900353EDE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9BC7AD9A153243C700B256EC /* en */,
+				9B51934B171DC0B900353EDE /* nl */,
+				9B51934E171DC1DB00353EDE /* en */,
 			);
-			name = InfoPlist.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9BC7ADA3153243C700B256EC /* en */,
+				9B519340171DBE9A00353EDE /* Base */,
+				9B519349171DC0B300353EDE /* nl */,
+				9B51934D171DC1DB00353EDE /* en */,
 			);
 			name = MainStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
-		9BC7ADB7153243C700B256EC /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9BC7ADB8153243C700B256EC /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -500,7 +498,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -522,7 +520,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

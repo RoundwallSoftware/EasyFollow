@@ -25,6 +25,8 @@
 {
     [super viewDidAppear:animated];
     [self.accountsController setup];
+    
+    self.searchBar.placeholder = NSLocalizedString(@"real name or username", @"Search bar placeholder");
 }
 
 - (void)viewDidLoad{
