@@ -12,7 +12,7 @@
 @class GOUserCell;
 @class GODataSource;
 @class GOAccountsViewController;
-@interface GOSearchViewController : UIViewController<UITableViewDelegate, GODataSourceInformer>
+@interface GOSearchViewController : UIViewController<UITableViewDelegate, GODataSourceInformer, UIActionSheetDelegate>
 
 // UI
 @property(nonatomic, retain) IBOutlet UISearchBar *searchBar;

@@ -59,6 +59,12 @@ static NSInteger requestCount = 0;
 {
     NSMutableAttributedString *text = nil;
     
+    if([self isBlocked]){
+        text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Blocked", @"Blocked status label")];
+        [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, [text length])];
+        return text;
+    }
+    
     if([self isFollowing]){
         text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Following", @"Following status label")];
         [text addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0, [text length])];
@@ -73,25 +79,34 @@ static NSInteger requestCount = 0;
     requestCount++;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [request performRequestWithHandler:^(NSData *__strong responseData, NSHTTPURLResponse *__strong urlResponse, NSError *__strong error) {
-        requestCount--;
-        if(requestCount <= 0){
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        }
         
         if([urlResponse statusCode] != 200){
             NSLog(@"error %i, %@", [urlResponse statusCode], [error localizedDescription]);
             dispatch_async(dispatch_get_main_queue(), ^{
+                requestCount--;
+                if(requestCount <= 0){
+                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                }
                 block();
             });
             return;
         }
         NSDictionary *returnedObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
         dispatch_async(dispatch_get_main_queue(), ^(void) {
+            requestCount--;
+            if(requestCount <= 0){
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            }
+            
             if([returnedObject objectForKey:@"error"]){
                 NSLog(@"error %i, %@", [urlResponse statusCode], returnedObject);
             }else{
+                if([[[request URL] absoluteString] rangeOfString:@"blocks/create"].location != NSNotFound){
+                    [self setBlocked:YES];
+                }
                 [self updateWithDictionary:returnedObject];
             }
+            
             block();
         });
     }];
@@ -99,12 +114,14 @@ static NSInteger requestCount = 0;
 
 - (void)followFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block{
     if([self isFollowing]){
+        block();
         return;
     }
-    NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1/friendships/create.json"];
+    NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1.1/friendships/create.json"];
     NSDictionary *params = @{
         @"screen_name":[self username],
-        @"skip_status":@"t"
+        @"skip_status":@"1",
+        @"include_entities": @"0"
     };
     SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:url parameters:params];
     
@@ -114,13 +131,34 @@ static NSInteger requestCount = 0;
 
 - (void)unfollowFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block{
     if(![self isFollowing]){
+        block();
         return;
     }
-    NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1/friendships/destroy.json"];
+    NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1.1/friendships/destroy.json"];
     NSDictionary *params = @{
         @"screen_name":[self username],
-        @"skip_status":@"t"
+        @"skip_status": @"1",
+        @"include_entities": @"0"
     };
+    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:url parameters:params];
+    
+    [request setAccount:account];
+    [self handleRequest:request block:block];
+}
+
+- (void)blockFromAccount:(ACAccount *)account completion:(GOCompletionBlock)block
+{
+    if([self isBlocked]){
+        block();
+        return;
+    }
+    
+    NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1.1/blocks/create.json"];
+    NSDictionary *params = @{
+                             @"screen_name":[self username],
+                             @"skip_status":@"1",
+                             @"include_entities": @"0"
+                             };
     SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:url parameters:params];
     
     [request setAccount:account];

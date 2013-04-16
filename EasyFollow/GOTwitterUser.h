@@ -18,6 +18,7 @@ typedef void (^GOCompletionBlock)(void);
 @property(nonatomic, retain) UIImage *image;
 @property(nonatomic, retain) NSString *profileImageURLString;
 @property(nonatomic, assign, getter=isFollowing) BOOL following;
+@property(nonatomic, assign, getter=isBlocked) BOOL blocked;
 
 + (id)userWithDictionary:(NSDictionary*)dict;
 - (void)updateWithDictionary:(NSDictionary*)dict;
@@ -26,5 +27,6 @@ typedef void (^GOCompletionBlock)(void);
 
 - (void)followFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block;
 - (void)unfollowFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block;
+- (void)blockFromAccount:(ACAccount *)account completion:(GOCompletionBlock)block;
 
 @end

@@ -107,8 +107,8 @@
     [self.dataSource setResults:[NSArray array]];
     [self.searchDisplayController.searchResultsTableView reloadData];
     
-    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1/users/search.json"];
-    NSDictionary *params = @{@"q":term};
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/users/search.json"];
+    NSDictionary *params = @{@"q":term, @"include_entities": @"0"};
     
     self.searchRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:params];
     ACAccount *currentAccount = [self.accountsController currentAccount];
@@ -149,6 +149,32 @@
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *username = [[self.accountsController currentAccount] username];
+    
+    GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
+    
+    NSString *followTitle = nil;
+    if([user isFollowing]){
+        followTitle = NSLocalizedString(@"Unfollow", @"Stop following action sheet button.");
+    }else{
+        followTitle = NSLocalizedString(@"Follow", @"Start following action sheet button.");
+    }
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:username delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:NSLocalizedString(@"Block", @"Block action sheet button") otherButtonTitles:followTitle, nil];
+    [sheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    UITableView *tableView = self.searchDisplayController.searchResultsTableView;
+    NSIndexPath *indexPath = [tableView indexPathForSelectedRow];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if(buttonIndex == [actionSheet cancelButtonIndex]){
+        return;
+    }
+    
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -160,12 +186,16 @@
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     };
     
+    if(buttonIndex == [actionSheet destructiveButtonIndex]){
+        [user blockFromAccount:[self.accountsController currentAccount] completion:block];
+        return;
+    }
+    
     if(user.isFollowing){
         [user unfollowFromAccount:[self.accountsController currentAccount] completion:block];
     }else{
         [user followFromAccount:[self.accountsController currentAccount] completion:block];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark -
