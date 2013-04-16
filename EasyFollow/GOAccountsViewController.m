@@ -38,16 +38,6 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
     [self.pageControl setCurrentPage:0];
 }
 
-- (void)viewDidLoad{
-    [super viewDidLoad];
-}
-
-- (void)viewDidUnload{
-    [super viewDidUnload];
-    self.accountNameLabel = nil;
-    self.pageControl = nil;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
@@ -136,7 +126,7 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
     [NSUserDefaults standardUserDefaults][kDefaultAccountIdentifierKey] = [newAccount identifier];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:GOAccountsDidChangeNotification object:nil];
-    [self animatedIndicator:GOIndicatorDirectionRight];
+    [self animatedIndicator:GOIndicatorDirectionLeft];
 }
 
 - (IBAction)prevAccount:(id)sender{
@@ -157,7 +147,7 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
     [NSUserDefaults standardUserDefaults][kDefaultAccountIdentifierKey] = [newAccount identifier];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:GOAccountsDidChangeNotification object:nil];
-    [self animatedIndicator:GOIndicatorDirectionLeft];
+    [self animatedIndicator:GOIndicatorDirectionRight];
 }
 
 @end
