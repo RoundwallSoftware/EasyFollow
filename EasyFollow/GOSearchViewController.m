@@ -61,6 +61,11 @@
 
 - (void)configureCell:(UITableViewCell *)cell forTableView:(UITableView *)tableView andIndexPath:(NSIndexPath *)path{
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:path];
+    if(!user){
+        [(GOUserCell*)cell updateForUser:nil];
+        return;
+    }
+    
     if(!user.image){
         [[JGAFImageCache sharedInstance] imageForURLString:[user profileImageURLString] completion:^(UIImage *image) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -152,6 +157,9 @@
     NSString *username = [[self.accountsController currentAccount] username];
     
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
+    if(!user){
+        return;
+    }
     
     NSString *followTitle = nil;
     if([user isFollowing]){
@@ -199,9 +207,11 @@
 }
 
 #pragma mark -
-#pragma mark UISearchDisplayControllerDelegate
+#pragma mark UISearchDisplayDelegate
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    [self.dataSource setResults:[NSArray array]];
+    [self.searchDisplayController.searchResultsTableView reloadData];
     return NO;
 }
 

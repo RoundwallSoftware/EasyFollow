@@ -8,7 +8,6 @@
 
 #import "GOAccountsViewController.h"
 #import "NSUserDefaults+GODictionaryLiterals.h"
-#import "NSArray+GOArrayLiterals.h"
 
 @interface GOAccountsViewController()
 - (NSUInteger)indexOfAccount:(ACAccount*)account;

@@ -39,8 +39,6 @@
 		9BE0AFF8171D342A00D125A6 /* UINavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0AFF6171D342A00D125A6 /* UINavigationBar.png */; };
 		9BE0AFF9171D342A00D125A6 /* UINavigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0AFF7171D342A00D125A6 /* UINavigationBar@2x.png */; };
 		9BEB4C8D15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */; };
-		9BEB4C901532935A0006F2B4 /* NSArray+GOArrayLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C8F1532935A0006F2B4 /* NSArray+GOArrayLiterals.m */; };
-		9BEB4C93153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C92153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m */; };
 		9BEB4C97153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C96153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m */; };
 /* End PBXBuildFile section */
 
@@ -103,10 +101,6 @@
 		9BE0AFF7171D342A00D125A6 /* UINavigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UINavigationBar@2x.png"; path = "../UINavigationBar@2x.png"; sourceTree = "<group>"; };
 		9BEB4C8B15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+GODictionaryLiterals.h"; sourceTree = "<group>"; };
 		9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCache+GODictionaryLiterals.m"; sourceTree = "<group>"; };
-		9BEB4C8E1532935A0006F2B4 /* NSArray+GOArrayLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GOArrayLiterals.h"; sourceTree = "<group>"; };
-		9BEB4C8F1532935A0006F2B4 /* NSArray+GOArrayLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GOArrayLiterals.m"; sourceTree = "<group>"; };
-		9BEB4C91153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GODictionaryLiterals.h"; sourceTree = "<group>"; };
-		9BEB4C92153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GODictionaryLiterals.m"; sourceTree = "<group>"; };
 		9BEB4C95153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+GODictionaryLiterals.h"; sourceTree = "<group>"; };
 		9BEB4C96153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+GODictionaryLiterals.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,10 +264,6 @@
 			children = (
 				9BEB4C8B15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.h */,
 				9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */,
-				9BEB4C8E1532935A0006F2B4 /* NSArray+GOArrayLiterals.h */,
-				9BEB4C8F1532935A0006F2B4 /* NSArray+GOArrayLiterals.m */,
-				9BEB4C91153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.h */,
-				9BEB4C92153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m */,
 				9BEB4C95153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.h */,
 				9BEB4C96153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m */,
 			);
@@ -418,8 +408,6 @@
 				9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */,
 				9BC7ADDB15324F1400B256EC /* GOAccountsViewController.m in Sources */,
 				9BEB4C8D15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m in Sources */,
-				9BEB4C901532935A0006F2B4 /* NSArray+GOArrayLiterals.m in Sources */,
-				9BEB4C93153293E20006F2B4 /* NSDictionary+GODictionaryLiterals.m in Sources */,
 				9BEB4C97153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m in Sources */,
 				9B47DF4A171B8B3F0083D7AE /* JGAFImageCache.m in Sources */,
 				9B47DF4B171B8B3F0083D7AE /* NSString+JGAFSHA1.m in Sources */,

@@ -7,7 +7,6 @@
 //
 
 #import "GODataSource.h"
-#import "NSArray+GOArrayLiterals.h"
 
 @interface GODataSource()
 @end
@@ -21,14 +20,21 @@
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)path{
-    return self.results[path.row];
+    if([self.results count]){
+        return self.results[path.row];
+    }
+    return nil;
 }
 
 #pragma mark -
 #pragma mark Table Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.results count];
+    NSInteger count = [self.results count];
+    if(count == 0){
+        count = 1;
+    }
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{    

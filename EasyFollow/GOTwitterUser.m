@@ -8,7 +8,6 @@
 
 #import "GOTwitterUser.h"
 #import <Twitter/TWRequest.h>
-#import "NSDictionary+GODictionaryLiterals.h"
 
 @implementation GOTwitterUser
 
