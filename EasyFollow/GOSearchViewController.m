@@ -117,6 +117,7 @@
     
     self.searchRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:params];
     ACAccount *currentAccount = [self.accountsController currentAccount];
+    NSString *username = [@"@" stringByAppendingString:[currentAccount username]];
     [self.searchRequest setAccount:currentAccount];
     
     [self.searchRequest performRequestWithHandler:^(NSData *__strong responseData, NSHTTPURLResponse *__strong urlResponse, NSError *__strong error) {
@@ -133,7 +134,9 @@
         NSMutableArray *newResults = [NSMutableArray array];
         [returnedObject enumerateObjectsUsingBlock:^(__strong id obj, NSUInteger idx, BOOL *stop) {
             GOTwitterUser *user = [GOTwitterUser userWithDictionary:obj];
-            [newResults addObject:user];
+            if(![[user username] isEqualToString:username]){
+                [newResults addObject:user];
+            }
         }];
         
         dispatch_async(dispatch_get_main_queue(), ^{
