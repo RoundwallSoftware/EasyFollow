@@ -137,6 +137,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert show];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
             });
             return;
         }
