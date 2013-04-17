@@ -21,7 +21,7 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" id="vLb-Wv-hZu">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="UINavigationBar.png" id="chK-Lb-eqs">
@@ -44,7 +44,7 @@
                                         </connections>
                                     </pageControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.5215686559677124" green="0.5215686559677124" blue="0.5215686559677124" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.5215686559677124" blue="0.5215686559677124" alpha="1" colorSpace="deviceRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="hEP-yF-IeB" appends="YES" id="yAd-EP-WiV"/>
