@@ -25,6 +25,10 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
     
     ACAccountType *type = [_store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     _accounts = [_store accountsWithAccountType:type];
+    if(![_accounts count]){
+        [self setupEmpty];
+        return;
+    }
     
     [self.pageControl setNumberOfPages:[_accounts count]];
     [self.pageControl setCurrentPage:[self indexOfAccount:[self currentAccount]]];
@@ -36,16 +40,18 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
     layer.shadowColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:1.0f].CGColor;
     layer.shadowOffset = CGSizeMake(0.1f, 2.1f);
     layer.shadowRadius = 1.0f;
-
+    
+    [self updateAccountIndicator];
 }
 
 - (void)setupEmpty
 {
-    _accounts = @[NSLocalizedString(@"No Accounts", @"Label for no accounts remaining.")];
     self.empty = YES;
     
     [self.pageControl setNumberOfPages:1];
     [self.pageControl setCurrentPage:0];
+    
+    [self updateAccountIndicator];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
@@ -79,7 +85,7 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
 - (void)updateAccountIndicator{
     ACAccount *currentAccount = [self currentAccount];
     if([self isEmpty]){
-        self.accountNameLabel.text = (NSString *)currentAccount;
+        self.accountNameLabel.text = NSLocalizedString(@"No Accounts", @"Label for no accounts remaining.");
     }else{
         self.accountNameLabel.text = [currentAccount username];
     }
