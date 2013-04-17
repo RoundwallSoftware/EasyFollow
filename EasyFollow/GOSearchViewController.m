@@ -12,6 +12,7 @@
 #import <Social/Social.h>
 #import "GOUserCell.h"
 #import "JGAFImageCache.h"
+#import "MBProgressHUD.h"
 
 @interface GOSearchViewController ()
 @property (nonatomic, strong) SLRequest *searchRequest;
@@ -117,6 +118,8 @@
         return;
     }
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     [self.dataSource setResults:nil];
     [self.searchDisplayController.searchResultsTableView reloadData];
     
@@ -150,6 +153,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.dataSource setResults:newResults];
             [self.searchDisplayController.searchResultsTableView reloadData];
+            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     }];
 }
