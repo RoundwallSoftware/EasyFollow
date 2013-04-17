@@ -16,6 +16,6 @@
 @property(nonatomic, retain) IBOutlet UILabel *screennameLabel;
 @property(nonatomic, retain) IBOutlet UILabel *statusLabel;
 
-- (void)updateForUser:(GOTwitterUser*)user;
+- (void)updateForUser:(GOTwitterUser*)user following:(NSSet *)followingIDs blocked:(NSSet *)blockedIDs;
 - (void)setProfileImage:(UIImage*)image;
 @end

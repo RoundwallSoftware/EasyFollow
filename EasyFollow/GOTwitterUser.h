@@ -12,6 +12,7 @@ typedef void (^GOCompletionBlock)(void);
 
 @class ACAccount;
 @interface GOTwitterUser : NSObject
+@property(nonatomic, copy) NSString *userID;
 @property(nonatomic, copy) NSString *username;
 @property(nonatomic, copy) NSString *realName;
 @property(nonatomic, copy) NSString *tagline;
@@ -23,7 +24,7 @@ typedef void (^GOCompletionBlock)(void);
 + (id)userWithDictionary:(NSDictionary*)dict;
 - (void)updateWithDictionary:(NSDictionary*)dict;
 
-- (NSAttributedString *)followingStatus;
+- (NSAttributedString *)followingStatusConsideringFollowings:(NSSet *)followings blocks:(NSSet *)blocks;
 
 - (void)followFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block;
 - (void)unfollowFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block;

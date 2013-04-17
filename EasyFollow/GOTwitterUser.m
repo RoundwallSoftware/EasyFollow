@@ -26,6 +26,8 @@ static NSInteger requestCount = 0;
 }
 
 - (void)updateWithDictionary:(NSDictionary*)dict{
+    self.userID = dict[@"id_str"];
+    
     NSString *tagLineString = dict[kUserDescriptionKey];
     if(![tagLineString isEqual:[NSNull null]]){
         self.tagline = tagLineString;
@@ -54,17 +56,17 @@ static NSInteger requestCount = 0;
     }
 }
 
-- (NSAttributedString *)followingStatus
+- (NSAttributedString *)followingStatusConsideringFollowings:(NSSet *)followings blocks:(NSSet *)blocks
 {
     NSMutableAttributedString *text = nil;
     
-    if([self isBlocked]){
+    if([blocks containsObject:self.userID]){
         text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Blocked", @"Blocked status label")];
         [text addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, [text length])];
         return text;
     }
     
-    if([self isFollowing]){
+    if([followings containsObject:self.userID]){
         text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Following", @"Following status label")];
         [text addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0, [text length])];
     }else{

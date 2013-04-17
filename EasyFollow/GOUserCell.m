@@ -12,11 +12,11 @@
 @implementation GOUserCell
 @synthesize nameLabel = _nameLabel, screennameLabel = _screennameLabel, profileImageView = _profileImageView;
 
-- (void)updateForUser:(GOTwitterUser*)user{
+- (void)updateForUser:(GOTwitterUser*)user following:(NSSet *)followingIDs blocked:(NSSet *)blockedIDs{
     self.nameLabel.text = [user realName];
     self.screennameLabel.text = [user username];
     
-    self.statusLabel.attributedText = [user followingStatus];
+    self.statusLabel.attributedText = [user followingStatusConsideringFollowings:followingIDs blocks:blockedIDs];
     
     [self setProfileImage:[user image]];
 }

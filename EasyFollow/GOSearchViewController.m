@@ -16,6 +16,8 @@
 
 @interface GOSearchViewController ()
 @property (nonatomic, strong) SLRequest *searchRequest;
+@property (nonatomic, strong) NSMutableSet *blockedIDs;
+@property (nonatomic, strong) NSMutableSet *followingIDs;
 - (void)becomeReady;
 - (void)accountsDidChange:(NSNotification *)notification;
 @end
@@ -26,6 +28,8 @@
 {
     [super viewDidAppear:animated];
     [self.accountsController setup];
+    
+    [self getBlocksAndFollows];
     
     self.searchBar.placeholder = NSLocalizedString(@"real name or username", @"Search bar placeholder");
 }
@@ -66,12 +70,14 @@
     [self.accountsController updateAccountIndicator];
     [self.searchBar setUserInteractionEnabled:YES];
     [self.searchBar becomeFirstResponder];
+    
+    [self getBlocksAndFollows];
 }
 
 - (void)configureCell:(UITableViewCell *)cell forTableView:(UITableView *)tableView andIndexPath:(NSIndexPath *)path{
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:path];
     if(!user){
-        [(GOUserCell*)cell updateForUser:nil];
+        [(GOUserCell*)cell updateForUser:nil following:self.followingIDs blocked:self.blockedIDs];
         return;
     }
     
@@ -103,7 +109,7 @@
             });
         }];
     }
-    [(GOUserCell*)cell updateForUser:user];
+    [(GOUserCell*)cell updateForUser:user following:self.followingIDs blocked:self.blockedIDs];
 }
 
 - (void)accountsDidChange:(NSNotification *)notification{
@@ -118,7 +124,7 @@
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:[self.view superview] animated:YES];
     
     [self.dataSource setResults:nil];
     [self.searchDisplayController.searchResultsTableView reloadData];
@@ -137,12 +143,12 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert show];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [MBProgressHUD hideHUDForView:[self.view superview] animated:YES];
             });
             return;
         }
-        NSArray *returnedObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
         
+        NSArray *returnedObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
         NSMutableArray *newResults = [NSMutableArray array];
         [returnedObject enumerateObjectsUsingBlock:^(__strong id obj, NSUInteger idx, BOOL *stop) {
             GOTwitterUser *user = [GOTwitterUser userWithDictionary:obj];
@@ -155,7 +161,7 @@
             [self.dataSource setResults:newResults];
             [self.searchDisplayController.searchResultsTableView reloadData];
             
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideHUDForView:[self.view superview] animated:YES];
         });
     }];
 }
@@ -212,13 +218,16 @@
     };
     
     if(buttonIndex == [actionSheet destructiveButtonIndex]){
+        [self.blockedIDs addObject:[user userID]];
         [user blockFromAccount:[self.accountsController currentAccount] completion:block];
         return;
     }
     
     if(user.isFollowing){
+        [self.followingIDs removeObject:[user userID]];
         [user unfollowFromAccount:[self.accountsController currentAccount] completion:block];
     }else{
+        [self.followingIDs addObject:[user userID]];
         [user followFromAccount:[self.accountsController currentAccount] completion:block];
     }
 }
@@ -235,6 +244,40 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 65.0f;
+}
+
+#pragma mark - Blocks and Follows
+
+- (void)getBlocksAndFollows
+{
+    NSURL *blockURL = [NSURL URLWithString:@"https://api.twitter.com/1.1/blocks/ids.json"];
+    SLRequest *blockRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:blockURL parameters:@{@"stringify_ids":@"1"}];
+    ACAccount *currentAccount = [self.accountsController currentAccount];
+    [blockRequest setAccount:currentAccount];
+    
+    [blockRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+        NSDictionary *returnedObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+        NSArray *blockedIDs = returnedObject[@"ids"];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.blockedIDs = [NSMutableSet setWithArray:blockedIDs];
+            [self.searchDisplayController.searchResultsTableView reloadData];
+        });
+    }];
+    
+    NSURL *friendURL = [NSURL URLWithString:@"https://api.twitter.com/1.1/friends/ids.json"];
+    SLRequest *friendRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:friendURL parameters:@{@"stringify_ids":@"1"}];
+    [friendRequest setAccount:currentAccount];
+    
+    [friendRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+        NSDictionary *returnedObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+        NSArray *friendIDs = returnedObject[@"ids"];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.followingIDs = [NSMutableSet setWithArray:friendIDs];
+            [self.searchDisplayController.searchResultsTableView reloadData];
+        });
+    }];
 }
 
 @end
