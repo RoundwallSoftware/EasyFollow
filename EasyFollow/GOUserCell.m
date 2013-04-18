@@ -19,6 +19,10 @@
     self.statusLabel.attributedText = [user followingStatusConsideringFollowings:followingIDs blocks:blockedIDs];
     
     [self setProfileImage:[user image]];
+    
+    if(user){
+        self.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"UITableViewCellBackground"]];
+    }
 }
 
 - (void)setProfileImage:(UIImage*)image{
