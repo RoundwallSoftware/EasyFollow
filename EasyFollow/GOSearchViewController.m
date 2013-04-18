@@ -12,6 +12,7 @@
 #import <Social/Social.h>
 #import "JGAFImageCache.h"
 #import "MBProgressHUD.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface GOSearchViewController ()
 @property (nonatomic, strong) SLRequest *searchRequest;
@@ -103,18 +104,46 @@
         [[JGAFImageCache sharedInstance] imageForURLString:[user profileImageURLString] completion:^(UIImage *image) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
-                // Begin a new image that will be the new image with the rounded corners
-                // (here with the size of an UIImageView)
-                UIGraphicsBeginImageContextWithOptions(image.size, NO, 0.0f);
+                CGFloat scale = [[UIScreen mainScreen] scale];
                 
-                // Add a clip before drawing anything, in the shape of an rounded rect
-                CGRect rect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
-                UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:image.size.width/4.0f];
+                UIGraphicsBeginImageContextWithOptions(CGSizeMake(image.size.width*scale, image.size.height*scale), NO, 0.0f);
+                CGContextRef context = UIGraphicsGetCurrentContext();
                 
-                [path addClip];
                 
-                // Draw your image
-                [image drawInRect:rect];
+                //// Color Declarations
+                UIColor* outerBorder = [UIColor colorWithRed: 0.082 green: 0.082 blue: 0.082 alpha: 1];
+                UIColor* avatarShadowColor = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0.505];
+                UIColor* color = [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 0.35];
+                
+                //// Shadow Declarations
+                UIColor* avatarShadow = avatarShadowColor;
+                CGSize avatarShadowOffset = CGSizeMake(0.1, 2.1);
+                CGFloat avatarShadowBlurRadius = 2;
+                
+                //// Avatar Drawing
+                UIBezierPath* avatarPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(0, 0, 96, 96)];
+                [avatarPath addClip];
+                
+                [image drawInRect:CGRectMake(0.0f, 0.0f, image.size.width*scale, image.size.height*scale)];
+                
+                CGContextSaveGState(context);
+                CGContextSetShadowWithColor(context, avatarShadowOffset, avatarShadowBlurRadius, avatarShadow.CGColor);
+                CGContextRestoreGState(context);
+                
+                [outerBorder setStroke];
+                avatarPath.lineWidth = 2;
+                [avatarPath stroke];
+                
+                
+                //// Inner Highlight Drawing
+                UIBezierPath* innerHighlightPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(0, 0, 92, 92)];
+                CGContextSaveGState(context);
+                CGContextSetShadowWithColor(context, avatarShadowOffset, avatarShadowBlurRadius, avatarShadow.CGColor);
+                CGContextRestoreGState(context);
+                
+                [color setStroke];
+                innerHighlightPath.lineWidth = 2;
+                [innerHighlightPath stroke];
                 
                 // Get the image, here setting the UIImageView image
                 UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -123,14 +152,12 @@
                 UIGraphicsEndImageContext();
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    user.image = newImage;
                     UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
+                    currentCell.imageView.contentScaleFactor = 1.0f/scale;
                     [currentCell.imageView setImage:newImage];
                 });
             });
         }];
-    }else{
-        cell.imageView.image = user.image;
     }
 }
 
