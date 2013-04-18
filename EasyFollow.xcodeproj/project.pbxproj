@@ -71,8 +71,12 @@
 /* Begin PBXFileReference section */
 		57F73A3078744104822D5EC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F9A31E86A214BC0B8FBAF80 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		9B2F83811720A51500DDE891 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9B2F83821720A51500DDE891 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		9B3B771717206ABE0092629C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B3B771917206ACC0092629C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
+		9B3E2F1B17209B9800A6FEBA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9B3E2F1C17209B9800A6FEBA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		9B47DF45171B8B3F0083D7AE /* JGAFImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGAFImageCache.h; sourceTree = "<group>"; };
 		9B47DF46171B8B3F0083D7AE /* JGAFImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAFImageCache.m; sourceTree = "<group>"; };
 		9B47DF47171B8B3F0083D7AE /* NSString+JGAFSHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JGAFSHA1.h"; sourceTree = "<group>"; };
@@ -503,6 +507,8 @@
 				9B51934B171DC0B900353EDE /* nl */,
 				9B51934E171DC1DB00353EDE /* en */,
 				9B3B771717206ABE0092629C /* es */,
+				9B3E2F1B17209B9800A6FEBA /* de */,
+				9B2F83811720A51500DDE891 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -514,6 +520,8 @@
 				9B519349171DC0B300353EDE /* nl */,
 				9B51934D171DC1DB00353EDE /* en */,
 				9B3B771917206ACC0092629C /* es */,
+				9B3E2F1C17209B9800A6FEBA /* de */,
+				9B2F83821720A51500DDE891 /* fr */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
