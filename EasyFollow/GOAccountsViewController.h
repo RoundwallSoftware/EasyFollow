@@ -21,8 +21,8 @@ extern NSString *const GOAccountsDidChangeNotification;
     NSArray *_accounts;
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *accountNameLabel;
-@property (nonatomic, retain) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, strong) IBOutlet UILabel *accountNameLabel;
+@property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
 
 - (void)setup;
 - (void)setupEmpty;

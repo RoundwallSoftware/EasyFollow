@@ -37,18 +37,12 @@
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor darkGrayColor];
     
-    NSParameterAssert(self.navigationController);
-    NSParameterAssert(self.navigationItem);
-    NSParameterAssert(self.navigationController.navigationBar);
     
     GOAccountsViewController *controller = [[GOAccountsViewController alloc] init];
-    NSParameterAssert(controller.view);
+    
     self.accountsController = controller;
     controller.view.frame = self.navigationController.navigationBar.bounds;
     self.navigationItem.titleView = controller.view;
-    
-    NSParameterAssert(self.navigationItem.titleView);
-    [self.navigationController.navigationBar layoutIfNeeded];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountsDidChange:) name:GOAccountsDidChangeNotification object:nil];
     
@@ -72,10 +66,6 @@
     }];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
 #pragma mark -
 #pragma mark Actions
 
@@ -89,8 +79,8 @@
     [self getBlocksAndFollows];
 }
 
-- (void)configureCell:(UITableViewCell *)cell forTableView:(UITableView *)tableView andIndexPath:(NSIndexPath *)path{
-    GOTwitterUser *user = [self.dataSource objectAtIndexPath:path];
+- (void)configureCell:(UITableViewCell *)cell forTableView:(UITableView *)tableView andIndexPath:(NSIndexPath *)indexPath{
+    GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
     cell.textLabel.text = [user realName];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.text = [user username];
@@ -124,7 +114,9 @@
                 
                 // Add a clip before drawing anything, in the shape of an rounded rect
                 CGRect rect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
-                [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:image.size.width/4.0f] addClip];
+                UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:image.size.width/4.0f];
+                [path addClip];
+                
                 // Draw your image
                 [image drawInRect:rect];
                 
@@ -136,11 +128,13 @@
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     user.image = newImage;
-                    UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:path];
+                    UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
                     [currentCell.imageView setImage:newImage];
                 });
             });
         }];
+    }else{
+        cell.imageView.image = user.image;
     }
 }
 
@@ -250,7 +244,6 @@
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [indicatorView setFrame:CGRectMake(0.0f, 0.0f, 30.0f, 30.0f)];
     [indicatorView startAnimating];
     cell.accessoryView = indicatorView;
     
@@ -264,6 +257,7 @@
             [user unblockFromAccount:[self.accountsController currentAccount] completion:block];
         }else{
             [self.blockedIDs addObject:[user userID]];
+            [self.followingIDs removeObject:[user userID]];
             [user blockFromAccount:[self.accountsController currentAccount] completion:block];
         }
         return;
@@ -289,7 +283,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 65.0f;
+    return 70.0f;
 }
 
 #pragma mark - Blocks and Follows
