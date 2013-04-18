@@ -45,11 +45,6 @@ static NSInteger requestCount = 0;
     }
     NSAssert(self.realName, @"NO REAL NAME!");
     
-    NSNumber *isFollowing = dict[kUserIsFollowingKey];
-    if(isFollowing != nil && ![isFollowing isEqual:[NSNull null]]){
-        self.following = [isFollowing boolValue];
-    }
-    
     NSString *profileURLString = dict[kUserProfileURLStringKey];
     if(profileURLString){
         self.profileImageURLString = profileURLString;
@@ -102,9 +97,6 @@ static NSInteger requestCount = 0;
             if([returnedObject objectForKey:@"error"]){
                 NSLog(@"error %i, %@", [urlResponse statusCode], returnedObject);
             }else{
-                if([[[request URL] absoluteString] rangeOfString:@"blocks/create"].location != NSNotFound){
-                    [self setBlocked:YES];
-                }
                 [self updateWithDictionary:returnedObject];
             }
             
@@ -114,10 +106,6 @@ static NSInteger requestCount = 0;
 }
 
 - (void)followFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block{
-    if([self isFollowing]){
-        block();
-        return;
-    }
     NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1.1/friendships/create.json"];
     NSDictionary *params = @{
         @"screen_name":[self username],
@@ -131,10 +119,6 @@ static NSInteger requestCount = 0;
 }
 
 - (void)unfollowFromAccount:(ACAccount*)account completion:(GOCompletionBlock)block{
-    if(![self isFollowing]){
-        block();
-        return;
-    }
     NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1.1/friendships/destroy.json"];
     NSDictionary *params = @{
         @"screen_name":[self username],
@@ -149,14 +133,23 @@ static NSInteger requestCount = 0;
 
 - (void)blockFromAccount:(ACAccount *)account completion:(GOCompletionBlock)block
 {
-    if([self isBlocked]){
-        block();
-        return;
-    }
-    
     NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1.1/blocks/create.json"];
     NSDictionary *params = @{
                              @"screen_name":[self username],
+                             @"skip_status":@"1",
+                             @"include_entities": @"0"
+                             };
+    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:url parameters:params];
+    
+    [request setAccount:account];
+    [self handleRequest:request block:block];
+}
+
+- (void)unblockFromAccount:(ACAccount *)account completion:(GOCompletionBlock)block
+{
+    NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1.1/blocks/destroy.json"];
+    NSDictionary *params = @{
+                             @"user_id":[self userID],
                              @"skip_status":@"1",
                              @"include_entities": @"0"
                              };

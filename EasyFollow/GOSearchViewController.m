@@ -185,13 +185,20 @@
     }
     
     NSString *followTitle = nil;
-    if([user isFollowing]){
+    if([self isFollowing:user]){
         followTitle = NSLocalizedString(@"Unfollow", @"Stop following action sheet button.");
     }else{
         followTitle = NSLocalizedString(@"Follow", @"Start following action sheet button.");
     }
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:username delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:NSLocalizedString(@"Block", @"Block action sheet button") otherButtonTitles:followTitle, nil];
+    NSString *blockedTitle = nil;
+    if([self isBlocked:user]){
+        blockedTitle = NSLocalizedString(@"Unblock", @"Unblock action sheet button");
+    }else{
+        blockedTitle = NSLocalizedString(@"Block", @"Block action sheet button");
+    }
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:username delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:blockedTitle otherButtonTitles:followTitle, nil];
     [sheet showInView:self.view];
 }
 
@@ -218,12 +225,17 @@
     };
     
     if(buttonIndex == [actionSheet destructiveButtonIndex]){
-        [self.blockedIDs addObject:[user userID]];
-        [user blockFromAccount:[self.accountsController currentAccount] completion:block];
+        if([self isBlocked:user]){
+            [self.blockedIDs removeObject:[user userID]];
+            [user unblockFromAccount:[self.accountsController currentAccount] completion:block];
+        }else{
+            [self.blockedIDs addObject:[user userID]];
+            [user blockFromAccount:[self.accountsController currentAccount] completion:block];
+        }
         return;
     }
     
-    if(user.isFollowing){
+    if([self isFollowing:user]){
         [self.followingIDs removeObject:[user userID]];
         [user unfollowFromAccount:[self.accountsController currentAccount] completion:block];
     }else{
@@ -278,6 +290,16 @@
             [self.searchDisplayController.searchResultsTableView reloadData];
         });
     }];
+}
+
+- (BOOL)isBlocked:(GOTwitterUser *)user
+{
+    return [self.blockedIDs containsObject:[user userID]];
+}
+
+- (BOOL)isFollowing:(GOTwitterUser *)user
+{
+    return [self.followingIDs containsObject:[user userID]];
 }
 
 @end
