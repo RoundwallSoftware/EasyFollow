@@ -1,9 +1,8 @@
-
 /* Class = "IBUILabel"; text = "current account"; ObjectID = "anK-l8-nWE"; */
-"anK-l8-nWE.text" = "Dutch current account";
+"anK-l8-nWE.text" = "huidig account";
 
 /* Class = "IBUISearchBar"; placeholder = "real name or username"; ObjectID = "gfe-QX-IXz"; */
-"gfe-QX-IXz.placeholder" = "Dutch real name or username";
+"gfe-QX-IXz.placeholder" = "Volledige Naam of @Gebruikersnaam";
 
 /* Class = "IBUISearchDisplayController"; searchResultsTitle = "Accounts"; ObjectID = "iuy-Tp-0ZW"; */
-"iuy-Tp-0ZW.searchResultsTitle" = "Dutch Accounts";
+"iuy-Tp-0ZW.searchResultsTitle" = "Accounts";

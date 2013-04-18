@@ -270,7 +270,7 @@
         blockedTitle = NSLocalizedString(@"Block", @"Block action sheet button");
     }
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[user username] delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:blockedTitle otherButtonTitles:followTitle, nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[user username] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel button title") destructiveButtonTitle:blockedTitle otherButtonTitles:followTitle, nil];
     [sheet showInView:self.view];
 }
 
