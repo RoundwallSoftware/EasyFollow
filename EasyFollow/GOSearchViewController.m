@@ -85,14 +85,22 @@
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UITableViewCellBackground"]];
     cell.imageView.image = [self treatedImage:[UIImage imageNamed:@"default_profile"]];
     
+    NSString *state = nil;
+    
     if([self isBlocked:user]){
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BlockedIndicator"]];
+        state = NSLocalizedString(@"Blocked", @"When a user is blocked");
     }else{
         if([self isFollowing:user]){
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"FollowingIndicator"]];
+            state = NSLocalizedString(@"Following", @"When a user is being followed");
         }else{
             cell.accessoryView = nil;
         }
+    }
+    
+    if(state){
+        cell.accessibilityLabel = [NSString stringWithFormat:@"%@\n%@\n%@", [user realName], [user username], state];
     }
     
     if(!user){
