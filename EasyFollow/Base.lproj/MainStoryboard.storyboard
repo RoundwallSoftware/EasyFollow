@@ -88,7 +88,7 @@
                                         <rect key="frame" x="20" y="18" width="280" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="prevAccount:" destination="iZr-G0-REI" eventType="valueChanged" id="6wR-dV-7zy"/>
+                                            <action selector="pageChanged:" destination="iZr-G0-REI" eventType="valueChanged" id="xqK-uq-rSu"/>
                                         </connections>
                                     </pageControl>
                                 </subviews>
@@ -98,6 +98,8 @@
                                 <connections>
                                     <outlet property="accountNameLabel" destination="XJm-a1-LGQ" id="bZH-IW-V5Z"/>
                                     <outlet property="pageControl" destination="uMJ-KT-m8Y" id="DQa-8y-JV9"/>
+                                    <outletCollection property="gestureRecognizers" destination="9Sw-nY-cRp" appends="YES" id="oLm-3r-0X6"/>
+                                    <outletCollection property="gestureRecognizers" destination="Dhe-eq-hcZ" appends="YES" id="cuI-Vk-bvW"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -117,6 +119,16 @@
                         <outlet property="informer" destination="s0W-it-1dT" id="a99-AB-dBf"/>
                     </connections>
                 </customObject>
+                <swipeGestureRecognizer direction="left" id="9Sw-nY-cRp">
+                    <connections>
+                        <action selector="nextAccount:" destination="iZr-G0-REI" id="UUs-wq-ZIe"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="Dhe-eq-hcZ">
+                    <connections>
+                        <action selector="prevAccount:" destination="iZr-G0-REI" id="yIl-oA-ia5"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-731" y="94"/>
         </scene>
