@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 SNAP Interactive. All rights reserved.
 //
 
-#import "GOAccountsViewController.h"
+#import "GOAccountsView.h"
 #import "NSUserDefaults+GODictionaryLiterals.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface GOAccountsViewController()
+@interface GOAccountsView()
 - (NSUInteger)indexOfAccount:(ACAccount*)account;
 @property (nonatomic, assign, getter=isEmpty) BOOL empty;
 @end
@@ -18,10 +18,16 @@
 NSString *const GOAccountsDidChangeNotification = @"omgtheaccountchanged!";
 NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
 
-@implementation GOAccountsViewController
+@implementation GOAccountsView
+
+- (void)setFrame:(CGRect)frame
+{
+    [super setFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
+}
 
 - (void)setup{
-    self.view.backgroundColor = [UIColor clearColor];
+    NSParameterAssert(self.pageControl);
+    NSParameterAssert(self.accountNameLabel);
     
     _store = [[ACAccountStore alloc] init];
     
@@ -54,10 +60,6 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
     [self.pageControl setCurrentPage:0];
     
     [self updateAccountIndicator];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (NSUInteger)indexOfAccount:(ACAccount*)account{
@@ -94,7 +96,7 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
 }
 
 - (void)animatedIndicator:(GOIndicatorDirection)direction{
-    CGFloat totalWidth = CGRectGetWidth(self.view.bounds);
+    CGFloat totalWidth = CGRectGetWidth(self.bounds);
     CGRect originalFrame = self.accountNameLabel.frame;
     CGFloat x;
     switch(direction){

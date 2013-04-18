@@ -30,7 +30,7 @@
 		9BAD5A66171FE8FA00797A1F /* FollowingIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A60171FE8FA00797A1F /* FollowingIndicator@2x.png */; };
 		9BAD5A67171FE8FA00797A1F /* UITableViewCellBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A61171FE8FA00797A1F /* UITableViewCellBackground.png */; };
 		9BAD5A68171FE8FA00797A1F /* UITableViewCellBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A62171FE8FA00797A1F /* UITableViewCellBackground@2x.png */; };
-		9BAD5A6A171FEC9800797A1F /* GOAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A69171FEC9800797A1F /* GOAccountViewController.xib */; };
+		9BAD5A6A171FEC9800797A1F /* GOAccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A69171FEC9800797A1F /* GOAccountView.xib */; };
 		9BAD5A6C171FF2A000797A1F /* default_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A6B171FF2A000797A1F /* default_profile.png */; };
 		9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
 		9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
@@ -46,7 +46,7 @@
 		9BC7ADD01532465300B256EC /* GOTwitterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADCD1532464500B256EC /* GOTwitterUser.m */; };
 		9BC7ADD41532466A00B256EC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADD31532466A00B256EC /* Accounts.framework */; };
 		9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD615324AAD00B256EC /* GODataSource.m */; };
-		9BC7ADDB15324F1400B256EC /* GOAccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */; };
+		9BC7ADDB15324F1400B256EC /* GOAccountsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD915324F1400B256EC /* GOAccountsView.m */; };
 		9BEB4C8D15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */; };
 		9BEB4C97153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C96153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m */; };
 /* End PBXBuildFile section */
@@ -93,7 +93,7 @@
 		9BAD5A60171FE8FA00797A1F /* FollowingIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FollowingIndicator@2x.png"; sourceTree = "<group>"; };
 		9BAD5A61171FE8FA00797A1F /* UITableViewCellBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableViewCellBackground.png; sourceTree = "<group>"; };
 		9BAD5A62171FE8FA00797A1F /* UITableViewCellBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UITableViewCellBackground@2x.png"; sourceTree = "<group>"; };
-		9BAD5A69171FEC9800797A1F /* GOAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GOAccountViewController.xib; sourceTree = "<group>"; };
+		9BAD5A69171FEC9800797A1F /* GOAccountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GOAccountView.xib; sourceTree = "<group>"; };
 		9BAD5A6B171FF2A000797A1F /* default_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_profile.png; sourceTree = "<group>"; };
 		9BC7AD8C153243C700B256EC /* EasyFollow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFollow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC7AD90153243C700B256EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -117,8 +117,8 @@
 		9BC7ADD31532466A00B256EC /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		9BC7ADD515324AAD00B256EC /* GODataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GODataSource.h; sourceTree = "<group>"; };
 		9BC7ADD615324AAD00B256EC /* GODataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODataSource.m; sourceTree = "<group>"; };
-		9BC7ADD815324F1400B256EC /* GOAccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOAccountsViewController.h; sourceTree = "<group>"; };
-		9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOAccountsViewController.m; sourceTree = "<group>"; };
+		9BC7ADD815324F1400B256EC /* GOAccountsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOAccountsView.h; sourceTree = "<group>"; };
+		9BC7ADD915324F1400B256EC /* GOAccountsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOAccountsView.m; sourceTree = "<group>"; };
 		9BEB4C8B15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+GODictionaryLiterals.h"; sourceTree = "<group>"; };
 		9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCache+GODictionaryLiterals.m"; sourceTree = "<group>"; };
 		9BEB4C95153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+GODictionaryLiterals.h"; sourceTree = "<group>"; };
@@ -272,9 +272,9 @@
 		9BC7ADDD15324F1A00B256EC /* Account Selector */ = {
 			isa = PBXGroup;
 			children = (
-				9BAD5A69171FEC9800797A1F /* GOAccountViewController.xib */,
-				9BC7ADD815324F1400B256EC /* GOAccountsViewController.h */,
-				9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */,
+				9BAD5A69171FEC9800797A1F /* GOAccountView.xib */,
+				9BC7ADD815324F1400B256EC /* GOAccountsView.h */,
+				9BC7ADD915324F1400B256EC /* GOAccountsView.m */,
 			);
 			name = "Account Selector";
 			sourceTree = "<group>";
@@ -385,7 +385,7 @@
 				9BAD5A66171FE8FA00797A1F /* FollowingIndicator@2x.png in Resources */,
 				9BAD5A67171FE8FA00797A1F /* UITableViewCellBackground.png in Resources */,
 				9BAD5A68171FE8FA00797A1F /* UITableViewCellBackground@2x.png in Resources */,
-				9BAD5A6A171FEC9800797A1F /* GOAccountViewController.xib in Resources */,
+				9BAD5A6A171FEC9800797A1F /* GOAccountView.xib in Resources */,
 				9BAD5A6C171FF2A000797A1F /* default_profile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,7 +439,7 @@
 				9BC7ADA7153243C700B256EC /* GOSearchViewController.m in Sources */,
 				9BC7ADD01532465300B256EC /* GOTwitterUser.m in Sources */,
 				9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */,
-				9BC7ADDB15324F1400B256EC /* GOAccountsViewController.m in Sources */,
+				9BC7ADDB15324F1400B256EC /* GOAccountsView.m in Sources */,
 				9BEB4C8D15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m in Sources */,
 				9BEB4C97153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m in Sources */,
 				9B47DF4A171B8B3F0083D7AE /* JGAFImageCache.m in Sources */,

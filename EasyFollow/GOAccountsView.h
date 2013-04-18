@@ -16,7 +16,7 @@ typedef enum{
 
 extern NSString *const GOAccountsDidChangeNotification;
 
-@interface GOAccountsViewController : UIViewController{
+@interface GOAccountsView : UIView{
     ACAccountStore *_store;
     NSArray *_accounts;
 }

@@ -7,7 +7,7 @@
 //
 
 #import "GOSearchViewController.h"
-#import "GOAccountsViewController.h"
+#import "GOAccountsView.h"
 #import "GOTwitterUser.h"
 #import <Social/Social.h>
 #import "JGAFImageCache.h"
@@ -26,7 +26,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.accountsController setup];
     
     [self getBlocksAndFollows];
     
@@ -37,12 +36,6 @@
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor darkGrayColor];
     
-    
-    GOAccountsViewController *controller = [[GOAccountsViewController alloc] init];
-    
-    self.accountsController = controller;
-    controller.view.frame = self.navigationController.navigationBar.bounds;
-    self.navigationItem.titleView = controller.view;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountsDidChange:) name:GOAccountsDidChangeNotification object:nil];
     
@@ -57,8 +50,8 @@
                                                       
                 [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Alert button title.") otherButtonTitles:nil] show];
                 
-                [self.accountsController setupEmpty];
-                [self.accountsController updateAccountIndicator];
+                [self.accountsControl setupEmpty];
+                [self.accountsControl updateAccountIndicator];
             }else{
                 [self becomeReady];
             }
@@ -70,9 +63,9 @@
 #pragma mark Actions
 
 - (void)becomeReady{
-    NSParameterAssert([self accountsController]);
-    [self.accountsController setup];
-    [self.accountsController updateAccountIndicator];
+    NSParameterAssert([self accountsControl]);
+    [self.accountsControl setup];
+    [self.accountsControl updateAccountIndicator];
     [self.searchBar setUserInteractionEnabled:YES];
     [self.searchBar becomeFirstResponder];
     
@@ -160,7 +153,7 @@
     NSDictionary *params = @{@"q":term, @"include_entities": @"0"};
     
     self.searchRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:params];
-    ACAccount *currentAccount = [self.accountsController currentAccount];
+    ACAccount *currentAccount = [self.accountsControl currentAccount];
     NSString *username = [@"@" stringByAppendingString:[currentAccount username]];
     [self.searchRequest setAccount:currentAccount];
     
@@ -254,21 +247,21 @@
     if(buttonIndex == [actionSheet destructiveButtonIndex]){
         if([self isBlocked:user]){
             [self.blockedIDs removeObject:[user userID]];
-            [user unblockFromAccount:[self.accountsController currentAccount] completion:block];
+            [user unblockFromAccount:[self.accountsControl currentAccount] completion:block];
         }else{
             [self.blockedIDs addObject:[user userID]];
             [self.followingIDs removeObject:[user userID]];
-            [user blockFromAccount:[self.accountsController currentAccount] completion:block];
+            [user blockFromAccount:[self.accountsControl currentAccount] completion:block];
         }
         return;
     }
     
     if([self isFollowing:user]){
         [self.followingIDs removeObject:[user userID]];
-        [user unfollowFromAccount:[self.accountsController currentAccount] completion:block];
+        [user unfollowFromAccount:[self.accountsControl currentAccount] completion:block];
     }else{
         [self.followingIDs addObject:[user userID]];
-        [user followFromAccount:[self.accountsController currentAccount] completion:block];
+        [user followFromAccount:[self.accountsControl currentAccount] completion:block];
     }
 }
 
@@ -292,7 +285,7 @@
 {
     NSURL *blockURL = [NSURL URLWithString:@"https://api.twitter.com/1.1/blocks/ids.json"];
     SLRequest *blockRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:blockURL parameters:@{@"stringify_ids":@"1"}];
-    ACAccount *currentAccount = [self.accountsController currentAccount];
+    ACAccount *currentAccount = [self.accountsControl currentAccount];
     [blockRequest setAccount:currentAccount];
     
     [blockRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
