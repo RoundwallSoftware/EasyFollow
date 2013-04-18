@@ -144,6 +144,7 @@
 }
 
 - (void)accountsDidChange:(NSNotification *)notification{
+    [self getBlocksAndFollows];
     [self search:self.searchBar.text];
 }
 
