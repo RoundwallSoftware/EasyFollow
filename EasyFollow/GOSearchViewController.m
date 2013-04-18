@@ -32,8 +32,9 @@
     
     self.searchBar.placeholder = NSLocalizedString(@"real name or username", @"Search bar placeholder");
     
-    if(CGRectGetHeight([[UIScreen mainScreen] bounds])){
-        self.backgroundImageView.image = [UIImage imageNamed:@"MainBackground-568@2x.png"];
+    if(CGRectGetHeight([[UIScreen mainScreen] bounds]) > 480.0f){
+        self.backgroundImageView.image = [UIImage imageNamed:@"MainBackground-568h"];
+        NSParameterAssert(self.backgroundImageView.image);
     }
 }
 
