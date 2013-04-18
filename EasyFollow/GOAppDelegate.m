@@ -11,6 +11,7 @@
 @implementation GOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    [[UISearchBar appearance] setBackgroundImage:[UIImage imageNamed:@"SearchBarBackground.png"]];
     return YES;
 }
 

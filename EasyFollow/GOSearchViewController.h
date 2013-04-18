@@ -17,6 +17,7 @@
 // UI
 @property(nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property(nonatomic, weak) IBOutlet UITableView *tableView;
+@property(nonatomic, weak) IBOutlet UIImageView *backgroundImageView;
 
 // Helpers
 @property(nonatomic, strong) IBOutlet GODataSource *dataSource;

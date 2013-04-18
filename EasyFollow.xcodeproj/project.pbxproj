@@ -15,6 +15,13 @@
 		9B47DF51171B8B8A0083D7AE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */; };
 		9B47DF54171B8ED80083D7AE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B47DF53171B8ED80083D7AE /* Social.framework */; };
 		9B51934A171DC0B900353EDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B51934C171DC0B900353EDE /* Localizable.strings */; };
+		9B6B706717202E55000FF8F9 /* MainBackground-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B706017202E55000FF8F9 /* MainBackground-568h@2x.png */; };
+		9B6B706817202E55000FF8F9 /* MainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B706117202E55000FF8F9 /* MainBackground.png */; };
+		9B6B706917202E55000FF8F9 /* MainBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B706217202E55000FF8F9 /* MainBackground@2x.png */; };
+		9B6B706A17202E55000FF8F9 /* MainBackgroundSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B706317202E55000FF8F9 /* MainBackgroundSymbol.png */; };
+		9B6B706B17202E55000FF8F9 /* MainBackgroundSymbol@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B706417202E55000FF8F9 /* MainBackgroundSymbol@2x.png */; };
+		9B6B706C17202E55000FF8F9 /* SearchBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B706517202E55000FF8F9 /* SearchBarBackground.png */; };
+		9B6B706D17202E55000FF8F9 /* SearchBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B706617202E55000FF8F9 /* SearchBarBackground@2x.png */; };
 		9B8995A6171DB0360038096D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8995A5171DB0360038096D /* Default-568h@2x.png */; };
 		9B8995A8171DB0390038096D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8995A7171DB0390038096D /* Default.png */; };
 		9B8995AA171DB03B0038096D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8995A9171DB03B0038096D /* Default@2x.png */; };
@@ -78,6 +85,13 @@
 		9B51934D171DC1DB00353EDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		9B51934E171DC1DB00353EDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B5E4D751532562F001EA717 /* EasyFollow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EasyFollow.entitlements; sourceTree = "<group>"; };
+		9B6B706017202E55000FF8F9 /* MainBackground-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MainBackground-568h@2x.png"; sourceTree = "<group>"; };
+		9B6B706117202E55000FF8F9 /* MainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainBackground.png; sourceTree = "<group>"; };
+		9B6B706217202E55000FF8F9 /* MainBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MainBackground@2x.png"; sourceTree = "<group>"; };
+		9B6B706317202E55000FF8F9 /* MainBackgroundSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainBackgroundSymbol.png; sourceTree = "<group>"; };
+		9B6B706417202E55000FF8F9 /* MainBackgroundSymbol@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MainBackgroundSymbol@2x.png"; sourceTree = "<group>"; };
+		9B6B706517202E55000FF8F9 /* SearchBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchBarBackground.png; sourceTree = "<group>"; };
+		9B6B706617202E55000FF8F9 /* SearchBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchBarBackground@2x.png"; sourceTree = "<group>"; };
 		9B8995A5171DB0360038096D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		9B8995A7171DB0390038096D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		9B8995A9171DB03B0038096D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
@@ -226,6 +240,13 @@
 		9BC7AD97153243C700B256EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B6B706017202E55000FF8F9 /* MainBackground-568h@2x.png */,
+				9B6B706117202E55000FF8F9 /* MainBackground.png */,
+				9B6B706217202E55000FF8F9 /* MainBackground@2x.png */,
+				9B6B706317202E55000FF8F9 /* MainBackgroundSymbol.png */,
+				9B6B706417202E55000FF8F9 /* MainBackgroundSymbol@2x.png */,
+				9B6B706517202E55000FF8F9 /* SearchBarBackground.png */,
+				9B6B706617202E55000FF8F9 /* SearchBarBackground@2x.png */,
 				9BAD5A6B171FF2A000797A1F /* default_profile.png */,
 				9BAD5A5D171FE8FA00797A1F /* BlockedIndicator.png */,
 				9BAD5A5E171FE8FA00797A1F /* BlockedIndicator@2x.png */,
@@ -387,6 +408,13 @@
 				9BAD5A68171FE8FA00797A1F /* UITableViewCellBackground@2x.png in Resources */,
 				9BAD5A6A171FEC9800797A1F /* GOAccountView.xib in Resources */,
 				9BAD5A6C171FF2A000797A1F /* default_profile.png in Resources */,
+				9B6B706717202E55000FF8F9 /* MainBackground-568h@2x.png in Resources */,
+				9B6B706817202E55000FF8F9 /* MainBackground.png in Resources */,
+				9B6B706917202E55000FF8F9 /* MainBackground@2x.png in Resources */,
+				9B6B706A17202E55000FF8F9 /* MainBackgroundSymbol.png in Resources */,
+				9B6B706B17202E55000FF8F9 /* MainBackgroundSymbol@2x.png in Resources */,
+				9B6B706C17202E55000FF8F9 /* SearchBarBackground.png in Resources */,
+				9B6B706D17202E55000FF8F9 /* SearchBarBackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

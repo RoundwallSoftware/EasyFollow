@@ -30,6 +30,10 @@
     [self getBlocksAndFollows];
     
     self.searchBar.placeholder = NSLocalizedString(@"real name or username", @"Search bar placeholder");
+    
+    if(CGRectGetHeight([[UIScreen mainScreen] bounds])){
+        self.backgroundImageView.image = [UIImage imageNamed:@"MainBackground-568@2x.png"];
+    }
 }
 
 - (void)viewDidLoad{
@@ -101,11 +105,12 @@
                 
                 // Begin a new image that will be the new image with the rounded corners
                 // (here with the size of an UIImageView)
-                UIGraphicsBeginImageContextWithOptions(image.size, NO, 1.0f);
+                UIGraphicsBeginImageContextWithOptions(image.size, NO, 0.0f);
                 
                 // Add a clip before drawing anything, in the shape of an rounded rect
                 CGRect rect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
                 UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:image.size.width/4.0f];
+                
                 [path addClip];
                 
                 // Draw your image
