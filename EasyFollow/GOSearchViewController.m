@@ -39,7 +39,7 @@
 }
 
 - (void)viewDidLoad{
-    [super viewDidLoad];    
+    [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountsDidChange:) name:GOAccountsDidChangeNotification object:nil];
     
@@ -83,6 +83,7 @@
     cell.detailTextLabel.text = [user username];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UITableViewCellBackground"]];
+    cell.imageView.image = [self treatedImage:[UIImage imageNamed:@"default_profile"]];
     
     if([self isBlocked:user]){
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BlockedIndicator"]];
@@ -100,66 +101,77 @@
     
     cell.imageView.image = user.image;
     if(!user.image){
-        cell.imageView.image = [UIImage imageNamed:@"default_profile"];
+        cell.imageView.image = [self treatedImage:[UIImage imageNamed:@"default_profile"]];
         
         [[JGAFImageCache sharedInstance] imageForURLString:[user profileImageURLString] completion:^(UIImage *image) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                
-                CGFloat scale = [[UIScreen mainScreen] scale];
-                
-                UIGraphicsBeginImageContextWithOptions(CGSizeMake(image.size.width*scale, image.size.height*scale), NO, 0.0f);
-                CGContextRef context = UIGraphicsGetCurrentContext();
-                
-                
-                //// Color Declarations
-                UIColor* outerBorder = [UIColor colorWithRed: 0.082 green: 0.082 blue: 0.082 alpha: 1];
-                UIColor* avatarShadowColor = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0.505];
-                UIColor* color = [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 0.35];
-                
-                //// Shadow Declarations
-                UIColor* avatarShadow = avatarShadowColor;
-                CGSize avatarShadowOffset = CGSizeMake(0.1, 2.1);
-                CGFloat avatarShadowBlurRadius = 2;
-                
-                //// Avatar Drawing
-                UIBezierPath* avatarPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(0, 0, 96, 96)];
-                [avatarPath addClip];
-                
-                [image drawInRect:CGRectMake(0.0f, 0.0f, image.size.width*scale, image.size.height*scale)];
-                
-                CGContextSaveGState(context);
-                CGContextSetShadowWithColor(context, avatarShadowOffset, avatarShadowBlurRadius, avatarShadow.CGColor);
-                CGContextRestoreGState(context);
-                
-                [outerBorder setStroke];
-                avatarPath.lineWidth = 2;
-                [avatarPath stroke];
-                
-                
-                //// Inner Highlight Drawing
-                UIBezierPath* innerHighlightPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(0, 0, 92, 92)];
-                CGContextSaveGState(context);
-                CGContextSetShadowWithColor(context, avatarShadowOffset, avatarShadowBlurRadius, avatarShadow.CGColor);
-                CGContextRestoreGState(context);
-                
-                [color setStroke];
-                innerHighlightPath.lineWidth = 2;
-                [innerHighlightPath stroke];
-                
-                // Get the image, here setting the UIImageView image
-                UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-                
-                // Lets forget about that we were drawing
-                UIGraphicsEndImageContext();
+                UIImage *newImage = [self treatedImage:image];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
-                    currentCell.imageView.contentScaleFactor = 1.0f/scale;
+                    currentCell.imageView.contentMode = UIViewContentModeScaleAspectFill;
                     [currentCell.imageView setImage:newImage];
                 });
             });
         }];
     }
+}
+
+- (UIImage *)treatedImage:(UIImage *)image
+{
+    CGFloat padding = 6.0f;
+    CGFloat scale = image.scale;
+    
+    CGRect frame = CGRectMake(0.0f+(padding/2.0f), 0.0f+(padding/2.0f), image.size.width*scale, image.size.height*scale);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(image.size.width*scale+(padding*scale), image.size.height*scale+(padding*scale)), NO, 0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    
+    //// Color Declarations
+    UIColor* outerBorder = [UIColor colorWithRed: 0.082 green: 0.082 blue: 0.082 alpha: 1];
+    UIColor* avatarShadowColor = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0.75];
+    UIColor* color = [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 0.35];
+    
+    //// Shadow Declarations
+    UIColor* avatarShadow = avatarShadowColor;
+    CGSize avatarShadowOffset = CGSizeMake(0.0f, 1.0f*scale);
+    CGFloat avatarShadowBlurRadius = 1.0f*scale;
+    
+    //// Avatar Drawing
+    UIBezierPath* avatarPath = [UIBezierPath bezierPathWithOvalInRect:CGRectInset(frame, 1.0f*scale, 1.0f*scale)];
+    
+    CGContextSaveGState(context);
+    CGContextSetShadowWithColor(context, avatarShadowOffset, avatarShadowBlurRadius, avatarShadow.CGColor);
+    
+    [outerBorder setStroke];
+    avatarPath.lineWidth = 2.0f*scale;
+    [avatarPath stroke];
+    
+    CGContextRestoreGState(context);
+    
+    CGContextSaveGState(context);
+    
+    [avatarPath addClip];
+    
+    [image drawInRect:CGRectMake(0.0f+(padding*0.5f*scale), 0.0f+(padding*0.5f*scale), image.size.width*scale, image.size.height*scale)];
+    
+    //// Inner Highlight Drawing
+    UIBezierPath* innerHighlightPath = [UIBezierPath bezierPathWithOvalInRect:CGRectInset(frame, 1.0f*scale, 1.0f*scale)];
+    CGContextSaveGState(context);
+    CGContextSetShadowWithColor(context, avatarShadowOffset, avatarShadowBlurRadius, avatarShadow.CGColor);
+    CGContextRestoreGState(context);
+    
+    [color setStroke];
+    innerHighlightPath.lineWidth = 2.0f*scale;
+    [innerHighlightPath stroke];
+    
+    // Get the image, here setting the UIImageView image
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Lets forget about that we were drawing
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 - (void)accountsDidChange:(NSNotification *)notification{
