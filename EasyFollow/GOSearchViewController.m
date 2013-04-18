@@ -10,7 +10,6 @@
 #import "GOAccountsViewController.h"
 #import "GOTwitterUser.h"
 #import <Social/Social.h>
-#import "GOUserCell.h"
 #import "JGAFImageCache.h"
 #import "MBProgressHUD.h"
 
@@ -84,7 +83,20 @@
 - (void)configureCell:(UITableViewCell *)cell forTableView:(UITableView *)tableView andIndexPath:(NSIndexPath *)path{
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:path];
     cell.textLabel.text = [user realName];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.text = [user username];
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UITableViewCellBackground"]];
+    
+    if([self isBlocked:user]){
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BlockedIndicator"]];
+    }else{
+        if([self isFollowing:user]){
+            cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"FollowingIndicator"]];
+        }else{
+            cell.accessoryView = nil;
+        }
+    }
     
     if(!user){
         return;

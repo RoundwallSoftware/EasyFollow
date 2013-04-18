@@ -43,8 +43,6 @@
 		9BC7ADB0153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
 		9BC7ADB1153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
 		9BC7ADBC153243C700B256EC /* EasyFollowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADBB153243C700B256EC /* EasyFollowTests.m */; };
-		9BC7ADC81532454600B256EC /* GOUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7ADC51532454600B256EC /* GOUserCell.xib */; };
-		9BC7ADC91532454600B256EC /* GOUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADC71532454600B256EC /* GOUserCell.m */; };
 		9BC7ADD01532465300B256EC /* GOTwitterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADCD1532464500B256EC /* GOTwitterUser.m */; };
 		9BC7ADD41532466A00B256EC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADD31532466A00B256EC /* Accounts.framework */; };
 		9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD615324AAD00B256EC /* GODataSource.m */; };
@@ -113,9 +111,6 @@
 		9BC7ADB6153243C700B256EC /* EasyFollowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyFollowTests-Info.plist"; sourceTree = "<group>"; };
 		9BC7ADBA153243C700B256EC /* EasyFollowTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyFollowTests.h; sourceTree = "<group>"; };
 		9BC7ADBB153243C700B256EC /* EasyFollowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyFollowTests.m; sourceTree = "<group>"; };
-		9BC7ADC51532454600B256EC /* GOUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GOUserCell.xib; sourceTree = "<group>"; };
-		9BC7ADC61532454600B256EC /* GOUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOUserCell.h; sourceTree = "<group>"; };
-		9BC7ADC71532454600B256EC /* GOUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOUserCell.m; sourceTree = "<group>"; };
 		9BC7ADCC1532464400B256EC /* GOTwitterUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOTwitterUser.h; sourceTree = "<group>"; };
 		9BC7ADCD1532464500B256EC /* GOTwitterUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOTwitterUser.m; sourceTree = "<group>"; };
 		9BC7ADD11532466700B256EC /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -212,7 +207,6 @@
 			children = (
 				9B51934C171DC0B900353EDE /* Localizable.strings */,
 				9B47DF44171B8B3F0083D7AE /* JGAFImageCache */,
-				9BC7ADCB1532455400B256EC /* User Cell */,
 				9BC7ADDD15324F1A00B256EC /* Account Selector */,
 				9BC7ADA2153243C700B256EC /* MainStoryboard.storyboard */,
 				9BC7ADCC1532464400B256EC /* GOTwitterUser.h */,
@@ -273,16 +267,6 @@
 				9BC7ADB6153243C700B256EC /* EasyFollowTests-Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9BC7ADCB1532455400B256EC /* User Cell */ = {
-			isa = PBXGroup;
-			children = (
-				9BC7ADC51532454600B256EC /* GOUserCell.xib */,
-				9BC7ADC61532454600B256EC /* GOUserCell.h */,
-				9BC7ADC71532454600B256EC /* GOUserCell.m */,
-			);
-			name = "User Cell";
 			sourceTree = "<group>";
 		};
 		9BC7ADDD15324F1A00B256EC /* Account Selector */ = {
@@ -384,7 +368,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC7ADA4153243C700B256EC /* MainStoryboard.storyboard in Resources */,
-				9BC7ADC81532454600B256EC /* GOUserCell.xib in Resources */,
 				9B47DF4C171B8B3F0083D7AE /* README.md in Resources */,
 				9B8995A6171DB0360038096D /* Default-568h@2x.png in Resources */,
 				9B8995A8171DB0390038096D /* Default.png in Resources */,
@@ -454,7 +437,6 @@
 				9BC7AD9D153243C700B256EC /* main.m in Sources */,
 				9BC7ADA1153243C700B256EC /* GOAppDelegate.m in Sources */,
 				9BC7ADA7153243C700B256EC /* GOSearchViewController.m in Sources */,
-				9BC7ADC91532454600B256EC /* GOUserCell.m in Sources */,
 				9BC7ADD01532465300B256EC /* GOTwitterUser.m in Sources */,
 				9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */,
 				9BC7ADDB15324F1400B256EC /* GOAccountsViewController.m in Sources */,
