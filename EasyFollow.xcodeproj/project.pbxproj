@@ -30,6 +30,8 @@
 		9BAD5A66171FE8FA00797A1F /* FollowingIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A60171FE8FA00797A1F /* FollowingIndicator@2x.png */; };
 		9BAD5A67171FE8FA00797A1F /* UITableViewCellBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A61171FE8FA00797A1F /* UITableViewCellBackground.png */; };
 		9BAD5A68171FE8FA00797A1F /* UITableViewCellBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A62171FE8FA00797A1F /* UITableViewCellBackground@2x.png */; };
+		9BAD5A6A171FEC9800797A1F /* GOAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A69171FEC9800797A1F /* GOAccountViewController.xib */; };
+		9BAD5A6C171FF2A000797A1F /* default_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD5A6B171FF2A000797A1F /* default_profile.png */; };
 		9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD90153243C700B256EC /* UIKit.framework */; };
 		9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD92153243C700B256EC /* Foundation.framework */; };
 		9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7AD94153243C700B256EC /* CoreGraphics.framework */; };
@@ -93,6 +95,8 @@
 		9BAD5A60171FE8FA00797A1F /* FollowingIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FollowingIndicator@2x.png"; sourceTree = "<group>"; };
 		9BAD5A61171FE8FA00797A1F /* UITableViewCellBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableViewCellBackground.png; sourceTree = "<group>"; };
 		9BAD5A62171FE8FA00797A1F /* UITableViewCellBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UITableViewCellBackground@2x.png"; sourceTree = "<group>"; };
+		9BAD5A69171FEC9800797A1F /* GOAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GOAccountViewController.xib; sourceTree = "<group>"; };
+		9BAD5A6B171FF2A000797A1F /* default_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_profile.png; sourceTree = "<group>"; };
 		9BC7AD8C153243C700B256EC /* EasyFollow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFollow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC7AD90153243C700B256EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9BC7AD92153243C700B256EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -228,6 +232,7 @@
 		9BC7AD97153243C700B256EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9BAD5A6B171FF2A000797A1F /* default_profile.png */,
 				9BAD5A5D171FE8FA00797A1F /* BlockedIndicator.png */,
 				9BAD5A5E171FE8FA00797A1F /* BlockedIndicator@2x.png */,
 				9BAD5A5F171FE8FA00797A1F /* FollowingIndicator.png */,
@@ -283,6 +288,7 @@
 		9BC7ADDD15324F1A00B256EC /* Account Selector */ = {
 			isa = PBXGroup;
 			children = (
+				9BAD5A69171FEC9800797A1F /* GOAccountViewController.xib */,
 				9BC7ADD815324F1400B256EC /* GOAccountsViewController.h */,
 				9BC7ADD915324F1400B256EC /* GOAccountsViewController.m */,
 			);
@@ -396,6 +402,8 @@
 				9BAD5A66171FE8FA00797A1F /* FollowingIndicator@2x.png in Resources */,
 				9BAD5A67171FE8FA00797A1F /* UITableViewCellBackground.png in Resources */,
 				9BAD5A68171FE8FA00797A1F /* UITableViewCellBackground@2x.png in Resources */,
+				9BAD5A6A171FEC9800797A1F /* GOAccountViewController.xib in Resources */,
+				9BAD5A6C171FF2A000797A1F /* default_profile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

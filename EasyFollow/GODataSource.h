@@ -14,11 +14,10 @@
     UINib *_userCellNib;
 }
 
-@property(nonatomic, retain) NSString *cellClassName;
-@property(nonatomic, retain) NSArray *results;
+@property(nonatomic, strong) NSArray *results;
 
-@property(nonatomic, retain) IBOutlet UITableViewCell *customCell;
-@property(nonatomic, retain) IBOutlet id<GODataSourceInformer> informer;
+@property(nonatomic, weak) IBOutlet UITableViewCell *customCell;
+@property(nonatomic, weak) IBOutlet id<GODataSourceInformer> informer;
 
 - (id)objectAtIndexPath:(NSIndexPath *)path;
 

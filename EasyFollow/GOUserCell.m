@@ -10,18 +10,32 @@
 #import "GOTwitterUser.h"
 
 @implementation GOUserCell
-@synthesize nameLabel = _nameLabel, screennameLabel = _screennameLabel, profileImageView = _profileImageView;
 
-- (void)updateForUser:(GOTwitterUser*)user following:(NSSet *)followingIDs blocked:(NSSet *)blockedIDs{
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if(self){
+        self.backgroundView = [[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"UITableViewCellBackground"]];
+    }
+    return self;
+}
+
+- (void)updateForUser:(GOTwitterUser*)user following:(BOOL)following blocked:(BOOL)blocked{    
     self.nameLabel.text = [user realName];
     self.screennameLabel.text = [user username];
     
-    self.statusLabel.attributedText = [user followingStatusConsideringFollowings:followingIDs blocks:blockedIDs];
-    
     [self setProfileImage:[user image]];
     
-    if(user){
-        self.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"UITableViewCellBackground"]];
+    if(blocked){
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BlockedIndicator"]];
+        self.accessoryView = imageView;
+    }else{
+        if(following){
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"FollowingIndicator"]];
+            self.accessoryView = imageView;
+        }else{
+            self.accessoryView = nil;
+        }
     }
 }
 

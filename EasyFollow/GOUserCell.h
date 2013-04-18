@@ -11,11 +11,10 @@
 @class GOTwitterUser;
 
 @interface GOUserCell : UITableViewCell
-@property(nonatomic, retain) IBOutlet UIImageView *profileImageView;
-@property(nonatomic, retain) IBOutlet UILabel *nameLabel;
-@property(nonatomic, retain) IBOutlet UILabel *screennameLabel;
-@property(nonatomic, retain) IBOutlet UILabel *statusLabel;
+@property(nonatomic, strong) IBOutlet UIImageView *profileImageView;
+@property(nonatomic, strong) IBOutlet UILabel *nameLabel;
+@property(nonatomic, strong) IBOutlet UILabel *screennameLabel;
 
-- (void)updateForUser:(GOTwitterUser*)user following:(NSSet *)followingIDs blocked:(NSSet *)blockedIDs;
+- (void)updateForUser:(GOTwitterUser*)user following:(BOOL)following blocked:(BOOL)blocked;
 - (void)setProfileImage:(UIImage*)image;
 @end

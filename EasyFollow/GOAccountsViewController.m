@@ -21,6 +21,8 @@ NSString *const kDefaultAccountIdentifierKey = @"omgcurrentAccountIdentifier";
 @implementation GOAccountsViewController
 
 - (void)setup{
+    self.view.backgroundColor = [UIColor clearColor];
+    
     _store = [[ACAccountStore alloc] init];
     
     ACAccountType *type = [_store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];

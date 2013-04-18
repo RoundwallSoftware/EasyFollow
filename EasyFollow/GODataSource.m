@@ -16,7 +16,7 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
-    _userCellNib = [UINib nibWithNibName:self.cellClassName bundle:nil];
+    _userCellNib = [UINib nibWithNibName:@"GOUserCell" bundle:nil];
     self.results = nil;
 }
 
@@ -41,22 +41,13 @@
 #pragma mark Table Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger count = [self.results count];
-    if(count == 0 && ![self isEmpty]){
-        count = 1;
-    }
-    return count;
+    return [self.results count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{    
     static NSString *identifier = @"aCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if(!cell){
-        [_userCellNib instantiateWithOwner:self options:nil];
-        cell = self.customCell;
-        self.customCell = nil;
-    }
     [self.informer configureCell:cell forTableView:tableView andIndexPath:indexPath];
     return cell;
 }

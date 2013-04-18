@@ -36,6 +36,12 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    GOAccountsViewController *controller = [[GOAccountsViewController alloc] init];
+    self.accountsController = controller;
+    controller.view.frame = self.navigationController.navigationBar.bounds;
+    self.navigationItem.titleView = controller.view;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountsDidChange:) name:GOAccountsDidChangeNotification object:nil];
     
     ACAccountStore *store = [[ACAccountStore alloc] init];
@@ -66,6 +72,7 @@
 #pragma mark Actions
 
 - (void)becomeReady{
+    NSParameterAssert([self accountsController]);
     [self.accountsController setup];
     [self.accountsController updateAccountIndicator];
     [self.searchBar setUserInteractionEnabled:YES];
@@ -76,12 +83,17 @@
 
 - (void)configureCell:(UITableViewCell *)cell forTableView:(UITableView *)tableView andIndexPath:(NSIndexPath *)path{
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:path];
+    cell.textLabel.text = [user realName];
+    cell.detailTextLabel.text = [user username];
+    
     if(!user){
-        [(GOUserCell*)cell updateForUser:nil following:self.followingIDs blocked:self.blockedIDs];
         return;
     }
     
+    cell.imageView.image = user.image;
     if(!user.image){
+        cell.imageView.image = [UIImage imageNamed:@"default_profile"];
+        
         [[JGAFImageCache sharedInstance] imageForURLString:[user profileImageURLString] completion:^(UIImage *image) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
@@ -103,13 +115,12 @@
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     user.image = newImage;
-                    GOUserCell *currentCell = (GOUserCell*)[tableView cellForRowAtIndexPath:path];
-                    [currentCell setProfileImage:newImage];
+                    UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:path];
+                    [currentCell.imageView setImage:newImage];
                 });
             });
         }];
     }
-    [(GOUserCell*)cell updateForUser:user following:self.followingIDs blocked:self.blockedIDs];
 }
 
 - (void)accountsDidChange:(NSNotification *)notification{
@@ -127,7 +138,7 @@
     [MBProgressHUD showHUDAddedTo:[self.view superview] animated:YES];
     
     [self.dataSource setResults:nil];
-    [self.searchDisplayController.searchResultsTableView reloadData];
+    [self.tableView reloadData];
     
     NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/users/search.json"];
     NSDictionary *params = @{@"q":term, @"include_entities": @"0"};
@@ -158,8 +169,11 @@
         }];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            NSParameterAssert([self tableView]);
+            NSParameterAssert([self dataSource]);
+            NSParameterAssert([newResults count]);
             [self.dataSource setResults:newResults];
-            [self.searchDisplayController.searchResultsTableView reloadData];
+            [self.tableView reloadData];
             
             [MBProgressHUD hideHUDForView:[self.view superview] animated:YES];
         });
@@ -176,9 +190,7 @@
 #pragma mark -
 #pragma mark UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *username = [[self.accountsController currentAccount] username];
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{    
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
     if(!user){
         return;
@@ -198,13 +210,13 @@
         blockedTitle = NSLocalizedString(@"Block", @"Block action sheet button");
     }
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:username delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:blockedTitle otherButtonTitles:followTitle, nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[user username] delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:blockedTitle otherButtonTitles:followTitle, nil];
     [sheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    UITableView *tableView = self.searchDisplayController.searchResultsTableView;
+    UITableView *tableView = self.tableView;
     NSIndexPath *indexPath = [tableView indexPathForSelectedRow];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -247,10 +259,10 @@
 #pragma mark -
 #pragma mark UISearchDisplayDelegate
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
     [self.dataSource setResults:nil];
-    [self.searchDisplayController.searchResultsTableView reloadData];
-    return NO;
+    [self.tableView reloadData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

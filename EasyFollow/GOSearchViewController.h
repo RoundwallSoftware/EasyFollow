@@ -12,12 +12,12 @@
 @class GOUserCell;
 @class GODataSource;
 @class GOAccountsViewController;
-@interface GOSearchViewController : UIViewController<UITableViewDelegate, GODataSourceInformer, UIActionSheetDelegate>
+@interface GOSearchViewController : UITableViewController<GODataSourceInformer, UIActionSheetDelegate, UISearchBarDelegate>
 
 // UI
-@property(nonatomic, retain) IBOutlet UISearchBar *searchBar;
+@property(nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
 // Helpers
-@property(nonatomic, retain) IBOutlet GODataSource *dataSource;
-@property(nonatomic, retain) IBOutlet GOAccountsViewController *accountsController;
+@property(nonatomic, strong) IBOutlet GODataSource *dataSource;
+@property(nonatomic, strong) IBOutlet GOAccountsViewController *accountsController;
 @end
