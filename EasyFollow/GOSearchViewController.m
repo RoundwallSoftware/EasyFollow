@@ -33,9 +33,7 @@
 }
 
 - (void)viewDidLoad{
-    [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor darkGrayColor];
-    
+    [super viewDidLoad];    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountsDidChange:) name:GOAccountsDidChangeNotification object:nil];
     
