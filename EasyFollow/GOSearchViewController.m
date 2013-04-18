@@ -35,6 +35,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.tableView.backgroundColor = [UIColor darkGrayColor];
     
     NSParameterAssert(self.navigationController);
     NSParameterAssert(self.navigationItem);
@@ -123,7 +124,7 @@
                 
                 // Add a clip before drawing anything, in the shape of an rounded rect
                 CGRect rect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
-                [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:image.size.width/2.0f] addClip];
+                [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:image.size.width/4.0f] addClip];
                 // Draw your image
                 [image drawInRect:rect];
                 
