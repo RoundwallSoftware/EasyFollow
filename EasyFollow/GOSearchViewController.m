@@ -36,10 +36,18 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    NSParameterAssert(self.navigationController);
+    NSParameterAssert(self.navigationItem);
+    NSParameterAssert(self.navigationController.navigationBar);
+    
     GOAccountsViewController *controller = [[GOAccountsViewController alloc] init];
+    NSParameterAssert(controller.view);
     self.accountsController = controller;
     controller.view.frame = self.navigationController.navigationBar.bounds;
     self.navigationItem.titleView = controller.view;
+    
+    NSParameterAssert(self.navigationItem.titleView);
+    [self.navigationController.navigationBar layoutIfNeeded];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountsDidChange:) name:GOAccountsDidChangeNotification object:nil];
     

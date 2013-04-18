@@ -14,6 +14,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"UINavigationBar.png"] forBarMetrics:UIBarMetricsDefault];
+    [[UISearchBar appearance] setBackgroundImage:[UIImage imageNamed:@"UINavigationBar"]];
     return YES;
 }
 
