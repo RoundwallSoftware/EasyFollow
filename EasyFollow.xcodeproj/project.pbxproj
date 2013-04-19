@@ -139,6 +139,8 @@
 		9BC7ADD615324AAD00B256EC /* GODataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GODataSource.m; sourceTree = "<group>"; };
 		9BC7ADD815324F1400B256EC /* GOAccountsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOAccountsView.h; sourceTree = "<group>"; };
 		9BC7ADD915324F1400B256EC /* GOAccountsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOAccountsView.m; sourceTree = "<group>"; };
+		9BCA4614172141FC00F59665 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9BCA4615172141FC00F59665 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		9BEB4C8B15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+GODictionaryLiterals.h"; sourceTree = "<group>"; };
 		9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCache+GODictionaryLiterals.m"; sourceTree = "<group>"; };
 		9BEB4C95153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+GODictionaryLiterals.h"; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				fr,
 				Base,
 				es,
+				ru,
 			);
 			mainGroup = 9BC7AD81153243C600B256EC;
 			productRefGroup = 9BC7AD8D153243C700B256EC /* Products */;
@@ -509,6 +512,7 @@
 				9B3B771717206ABE0092629C /* es */,
 				9B3E2F1B17209B9800A6FEBA /* de */,
 				9B2F83811720A51500DDE891 /* fr */,
+				9BCA4614172141FC00F59665 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -522,6 +526,7 @@
 				9B3B771917206ACC0092629C /* es */,
 				9B3E2F1C17209B9800A6FEBA /* de */,
 				9B2F83821720A51500DDE891 /* fr */,
+				9BCA4615172141FC00F59665 /* ru */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";

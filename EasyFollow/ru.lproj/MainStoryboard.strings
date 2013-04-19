@@ -1,0 +1,10 @@
+/* Class = "IBUILabel"; text = "current account"; ObjectID = "anK-l8-nWE"; */
+"anK-l8-nWE.text" = "текущая учетная запись";
+
+/* Class = "IBUISearchBar"; placeholder = "real name or username";
+ ObjectID = "gfe-QX-IXz"; */
+"gfe-QX-IXz.placeholder" = "Настоящее имя или имя пользователя";
+
+/* Class = "IBUISearchDisplayController"; searchResultsTitle =
+ "Accounts"; ObjectID = "iuy-Tp-0ZW"; */
+"iuy-Tp-0ZW.searchResultsTitle" = "Учётные записи";
