@@ -8,21 +8,16 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>Icon-Small.png</string>
-		<string>Icon-Small@2x.png</string>
-	</array>
 	<key>CFBundleIcons</key>
 	<dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>Icon_6.png</string>
-				<string>Icon_6@2x.png</string>
 				<string>Icon.png</string>
 				<string>Icon@2x.png</string>
+				<string>Icon-Small.png</string>
+				<string>Icon-Small@2x.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -41,7 +36,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>12</string>
+	<string>13</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
