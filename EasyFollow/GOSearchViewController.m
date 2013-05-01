@@ -32,8 +32,6 @@
     
     [self getBlocksAndFollows];
     
-    self.searchBar.placeholder = NSLocalizedString(@"real name or username", @"Search bar placeholder");
-    
     if(CGRectGetHeight([[UIScreen mainScreen] bounds]) > 480.0f){
         self.backgroundImageView.image = [UIImage imageNamed:@"MainBackground-568h"];
         NSParameterAssert(self.backgroundImageView.image);
@@ -150,6 +148,7 @@
     controller.blockedIDs = self.blockedIDs;
     controller.followingIDs = self.followingIDs;
     controller.user = user;
+    controller.account = self.accountsControl.currentAccount;
 }
 
 #pragma mark -

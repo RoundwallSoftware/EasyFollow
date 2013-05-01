@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Accounts/Accounts.h>
 
 @class GOTwitterUser;
 @interface GOProfileViewController : UIViewController
@@ -23,8 +24,9 @@
 @property (nonatomic, weak) IBOutlet UIButton *blockButton;
 
 @property (nonatomic, strong) GOTwitterUser *user;
-@property (nonatomic, copy) NSSet *followingIDs;
-@property (nonatomic, copy) NSSet *blockedIDs;
+@property (nonatomic, strong) ACAccount *account;
+@property (nonatomic, strong) NSMutableSet *followingIDs;
+@property (nonatomic, strong) NSMutableSet *blockedIDs;
 
 - (IBAction)gotoURL:(id)sender;
 @end

@@ -10,6 +10,7 @@
 #import "UIImage+TreatedImage.h"
 #import "GOTwitterUser.h"
 #import "UIImageView+AFNetworking.h"
+#import "MBProgressHUD.h"
 
 @interface GOProfileViewController ()
 
@@ -35,18 +36,32 @@
     
     self.urlLabel.text = [self.user urlString];
     
-    if([self isBlocked:self.user]){
-        self.blockButton.titleLabel.text = NSLocalizedString(@"Unblock", @"Unblock button title");
-    }else{
-        self.blockButton.titleLabel.text = NSLocalizedString(@"Block", @"Block button title");
-    }
+    [self updateBlockButtonTitle];
     
+    [self updateFollowButtonTitle];
+}
+
+#pragma mark - Helpers
+
+- (void)updateFollowButtonTitle
+{
     if([self isFollowing:self.user]){
         self.followButton.titleLabel.text = NSLocalizedString(@"Unfollow", @"Unfollow button title");
     }else{
         self.followButton.titleLabel.text = NSLocalizedString(@"Follow", @"Follow button title");
     }
 }
+
+- (void)updateBlockButtonTitle
+{
+    if([self isBlocked:self.user]){
+        self.blockButton.titleLabel.text = NSLocalizedString(@"Unblock", @"Unblock button title");
+    }else{
+        self.blockButton.titleLabel.text = NSLocalizedString(@"Block", @"Block button title");
+    }
+}
+
+#pragma mark - Actions
 
 - (IBAction)gotoURL:(id)sender
 {
@@ -63,6 +78,48 @@
 - (BOOL)isFollowing:(GOTwitterUser *)user
 {
     return [self.followingIDs containsObject:[user userID]];
+}
+
+- (IBAction)blockToggle:(id)sender
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self.view superview] animated:YES];
+    
+    GOCompletionBlock block = ^(void){
+        [self updateBlockButtonTitle];
+        [hud hide:YES];
+    };
+
+    
+    GOTwitterUser *user = self.user;
+    
+    if([self isBlocked:user]){
+        [self.blockedIDs removeObject:[user userID]];
+        [user unblockFromAccount:self.account completion:block];
+    }else{
+        [self.blockedIDs addObject:[user userID]];
+        [self.followingIDs removeObject:[user userID]];
+        [user blockFromAccount:self.account completion:block];
+    }
+}
+
+- (IBAction)followToggle:(id)sender
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[self.view superview] animated:YES];
+    
+    GOCompletionBlock block = ^(void){
+        [self updateFollowButtonTitle];
+        [hud hide:YES];
+    };
+    
+    GOTwitterUser *user = self.user;
+    
+    if([self isFollowing:user]){
+        [self.followingIDs removeObject:[user userID]];
+        [user unfollowFromAccount:self.account completion:block];
+    }else{
+        [self.followingIDs addObject:[user userID]];
+        [user followFromAccount:self.account completion:block];
+    }
 }
 
 @end
