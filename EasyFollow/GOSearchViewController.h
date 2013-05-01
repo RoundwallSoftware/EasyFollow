@@ -22,4 +22,6 @@
 // Helpers
 @property(nonatomic, strong) IBOutlet GODataSource *dataSource;
 @property(nonatomic, strong) IBOutlet GOAccountsView *accountsControl;
+
+- (IBAction)exit:(UIStoryboardSegue *)sender;
 @end

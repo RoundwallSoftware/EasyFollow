@@ -187,6 +187,11 @@
     [self search:self.searchBar.text];
 }
 
+- (IBAction)exit:(UIStoryboardSegue *)sender{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark -
 #pragma mark Searching
 
@@ -270,7 +275,9 @@
         blockedTitle = NSLocalizedString(@"Block", @"Block action sheet button");
     }
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[user username] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel button title") destructiveButtonTitle:blockedTitle otherButtonTitles:followTitle, nil];
+    NSString *profileTitle = NSLocalizedString(@"View Profile", @"View-profile action sheet button.");
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[user username] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel button title") destructiveButtonTitle:blockedTitle otherButtonTitles:profileTitle, followTitle, nil];
     [sheet showInView:self.view];
 }
 
@@ -279,23 +286,21 @@
     UITableView *tableView = self.tableView;
     NSIndexPath *indexPath = [tableView indexPathForSelectedRow];
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     if(buttonIndex == [actionSheet cancelButtonIndex]){
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
         return;
     }
-    
-    GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [indicatorView startAnimating];
-    cell.accessoryView = indicatorView;
     
     GOCompletionBlock block = ^(void){
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     };
     
+    GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
+    
     if(buttonIndex == [actionSheet destructiveButtonIndex]){
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self startActivitySpinnerForIndexPath:indexPath];
+        
         if([self isBlocked:user]){
             [self.blockedIDs removeObject:[user userID]];
             [user unblockFromAccount:[self.accountsControl currentAccount] completion:block];
@@ -307,13 +312,33 @@
         return;
     }
     
-    if([self isFollowing:user]){
-        [self.followingIDs removeObject:[user userID]];
-        [user unfollowFromAccount:[self.accountsControl currentAccount] completion:block];
-    }else{
+    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Follow"]){
+        [self startActivitySpinnerForIndexPath:indexPath];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
         [self.followingIDs addObject:[user userID]];
         [user followFromAccount:[self.accountsControl currentAccount] completion:block];
     }
+    
+    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Unfollow"]){
+        [self startActivitySpinnerForIndexPath:indexPath];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        [self.followingIDs removeObject:[user userID]];
+        [user unfollowFromAccount:[self.accountsControl currentAccount] completion:block];
+    }
+    
+    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"View Profile"]){
+        [self performSegueWithIdentifier:@"toProfile" sender:self];
+    }
+}
+
+- (void)startActivitySpinnerForIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [indicatorView startAnimating];
+    cell.accessoryView = indicatorView;
 }
 
 #pragma mark -
