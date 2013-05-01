@@ -164,6 +164,15 @@
     [self.dataSource setResults:nil];
     [self.tableView reloadData];
     
+    if(self.searchBar.selectedScopeButtonIndex == 0){
+        [self searchForUsername:term];
+    }else{
+        [self searchForHashtag:term];
+    }
+}
+
+- (void)searchForUsername:(NSString *)term
+{
     NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/users/search.json"];
     NSDictionary *params = @{@"q":term, @"include_entities": @"0"};
     
@@ -195,7 +204,57 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSParameterAssert([self tableView]);
             NSParameterAssert([self dataSource]);
-            NSParameterAssert([newResults count]);
+            
+            [self.dataSource setResults:newResults];
+            [self.tableView reloadData];
+            
+            [MBProgressHUD hideHUDForView:[self.view superview] animated:YES];
+        });
+    }];
+}
+
+- (void)searchForHashtag:(NSString *)tag
+{
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/search/tweets.json"];
+    NSDictionary *params = @{@"q":tag, @"include_entities": @"0"};
+    
+    self.searchRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:params];
+    ACAccount *currentAccount = [self.accountsControl currentAccount];
+    NSString *username = [@"@" stringByAppendingString:[currentAccount username]];
+    [self.searchRequest setAccount:currentAccount];
+    
+    [self.searchRequest performRequestWithHandler:^(NSData *__strong responseData, NSHTTPURLResponse *__strong urlResponse, NSError *__strong error) {
+        if([urlResponse statusCode] != 200){
+            NSLog(@"error %i, %@", [urlResponse statusCode], [error localizedDescription]);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                [MBProgressHUD hideHUDForView:[self.view superview] animated:YES];
+            });
+            return;
+        }
+        
+        NSDictionary *returnedObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+        
+        NSArray *tweetsToDig = returnedObject[@"statuses"];
+        
+        NSMutableSet *usernames = [NSMutableSet setWithCapacity:[tweetsToDig count]];
+        
+        NSMutableArray *newResults = [NSMutableArray array];
+        [tweetsToDig enumerateObjectsUsingBlock:^(__strong id obj, NSUInteger idx, BOOL *stop) {
+            NSDictionary *userDictionary = obj[@"user"];
+            
+            GOTwitterUser *user = [GOTwitterUser userWithDictionary:userDictionary];
+            if(![[user username] isEqualToString:username] && ![usernames containsObject:[user username]]){
+                [usernames addObject:[user username]];
+                [newResults addObject:user];
+            }
+        }];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSParameterAssert([self tableView]);
+            NSParameterAssert([self dataSource]);
+            
             [self.dataSource setResults:newResults];
             [self.tableView reloadData];
             
@@ -208,6 +267,15 @@
     [aSearchBar resignFirstResponder];
     if([[aSearchBar text] length] > 0){
         [self search:[aSearchBar text]];
+    }
+}
+
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+    if(selectedScope == 0){
+        searchBar.text = [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
+    }else{
+        searchBar.text = [@"#" stringByAppendingString:searchBar.text];
     }
 }
 

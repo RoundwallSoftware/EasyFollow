@@ -53,8 +53,12 @@
                                     <outlet property="delegate" destination="s0W-it-1dT" id="wEa-xQ-Dd7"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="vU3-0y-uCg">
+                            <searchBar contentMode="redraw" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vU3-0y-uCg">
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <scopeButtonTitles>
+                                    <string>name</string>
+                                    <string>#hashtag</string>
+                                </scopeButtonTitles>
                                 <connections>
                                     <outlet property="delegate" destination="s0W-it-1dT" id="fgG-FG-OVa"/>
                                 </connections>
