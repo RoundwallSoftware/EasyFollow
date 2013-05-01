@@ -13,6 +13,7 @@
 #import "JGAFImageCache.h"
 #import "MBProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIImage+TreatedImage.h"
 
 @interface GOSearchViewController ()
 @property (nonatomic, strong) SLRequest *searchRequest;
@@ -83,7 +84,7 @@
     cell.detailTextLabel.text = [user username];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UITableViewCellBackground"]];
-    cell.imageView.image = [self treatedImage:[UIImage imageNamed:@"default_profile"]];
+    cell.imageView.image = [[UIImage imageNamed:@"default_profile"] treatedImage];
     
     NSString *state = nil;
     
@@ -107,79 +108,22 @@
         return;
     }
     
-    cell.imageView.image = user.image;
+    cell.imageView.image = [user.image treatedImage];
     if(!user.image){
-        cell.imageView.image = [self treatedImage:[UIImage imageNamed:@"default_profile"]];
+        cell.imageView.image = [[UIImage imageNamed:@"default_profile"] treatedImage];
         
         [[JGAFImageCache sharedInstance] imageForURLString:[user profileImageURLString] completion:^(UIImage *image) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                UIImage *newImage = [self treatedImage:image];
+                UIImage *newImage = image;
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
                     currentCell.imageView.contentMode = UIViewContentModeScaleAspectFill;
-                    [currentCell.imageView setImage:newImage];
+                    currentCell.imageView.image = [newImage treatedImage];
                 });
             });
         }];
     }
-}
-
-- (UIImage *)treatedImage:(UIImage *)image
-{
-    CGFloat padding = 6.0f;
-    CGFloat scale = image.scale;
-    
-    CGRect frame = CGRectMake(0.0f+(padding/2.0f), 0.0f+(padding/2.0f), image.size.width*scale, image.size.height*scale);
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(image.size.width*scale+(padding*scale), image.size.height*scale+(padding*scale)), NO, 0.0f);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    
-    //// Color Declarations
-    UIColor* outerBorder = [UIColor colorWithRed: 0.082 green: 0.082 blue: 0.082 alpha: 1];
-    UIColor* avatarShadowColor = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0.75];
-    UIColor* color = [UIColor colorWithRed: 1 green: 1 blue: 1 alpha: 0.35];
-    
-    //// Shadow Declarations
-    UIColor* avatarShadow = avatarShadowColor;
-    CGSize avatarShadowOffset = CGSizeMake(0.0f, 1.0f*scale);
-    CGFloat avatarShadowBlurRadius = 1.0f*scale;
-    
-    //// Avatar Drawing
-    UIBezierPath* avatarPath = [UIBezierPath bezierPathWithOvalInRect:CGRectInset(frame, 1.0f*scale, 1.0f*scale)];
-    
-    CGContextSaveGState(context);
-    CGContextSetShadowWithColor(context, avatarShadowOffset, avatarShadowBlurRadius, avatarShadow.CGColor);
-    
-    [outerBorder setStroke];
-    avatarPath.lineWidth = 2.0f*scale;
-    [avatarPath stroke];
-    
-    CGContextRestoreGState(context);
-    
-    CGContextSaveGState(context);
-    
-    [avatarPath addClip];
-    
-    [image drawInRect:CGRectMake(0.0f+(padding*0.5f*scale), 0.0f+(padding*0.5f*scale), image.size.width*scale, image.size.height*scale)];
-    
-    //// Inner Highlight Drawing
-    UIBezierPath* innerHighlightPath = [UIBezierPath bezierPathWithOvalInRect:CGRectInset(frame, 1.0f*scale, 1.0f*scale)];
-    CGContextSaveGState(context);
-    CGContextSetShadowWithColor(context, avatarShadowOffset, avatarShadowBlurRadius, avatarShadow.CGColor);
-    CGContextRestoreGState(context);
-    
-    [color setStroke];
-    innerHighlightPath.lineWidth = 2.0f*scale;
-    [innerHighlightPath stroke];
-    
-    // Get the image, here setting the UIImageView image
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    // Lets forget about that we were drawing
-    UIGraphicsEndImageContext();
-    
-    return newImage;
 }
 
 - (void)accountsDidChange:(NSNotification *)notification{
@@ -297,10 +241,15 @@
     
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
     
+    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"View Profile"]){
+        [self performSegueWithIdentifier:@"toProfile" sender:self];
+        return;
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self startActivitySpinnerForIndexPath:indexPath];
+    
     if(buttonIndex == [actionSheet destructiveButtonIndex]){
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        [self startActivitySpinnerForIndexPath:indexPath];
-        
         if([self isBlocked:user]){
             [self.blockedIDs removeObject:[user userID]];
             [user unblockFromAccount:[self.accountsControl currentAccount] completion:block];
@@ -309,27 +258,16 @@
             [self.followingIDs removeObject:[user userID]];
             [user blockFromAccount:[self.accountsControl currentAccount] completion:block];
         }
-        return;
     }
     
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Follow"]){
-        [self startActivitySpinnerForIndexPath:indexPath];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
         [self.followingIDs addObject:[user userID]];
         [user followFromAccount:[self.accountsControl currentAccount] completion:block];
     }
     
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Unfollow"]){
-        [self startActivitySpinnerForIndexPath:indexPath];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
         [self.followingIDs removeObject:[user userID]];
         [user unfollowFromAccount:[self.accountsControl currentAccount] completion:block];
-    }
-    
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"View Profile"]){
-        [self performSegueWithIdentifier:@"toProfile" sender:self];
     }
 }
 

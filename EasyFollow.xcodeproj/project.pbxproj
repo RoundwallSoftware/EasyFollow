@@ -22,6 +22,7 @@
 		9B6B706B17202E55000FF8F9 /* MainBackgroundSymbol@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B706417202E55000FF8F9 /* MainBackgroundSymbol@2x.png */; };
 		9B6B706C17202E55000FF8F9 /* SearchBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B706517202E55000FF8F9 /* SearchBarBackground.png */; };
 		9B6B706D17202E55000FF8F9 /* SearchBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B706617202E55000FF8F9 /* SearchBarBackground@2x.png */; };
+		9B7408AF1730F8BA000BEE16 /* UIImage+TreatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7408AE1730F8BA000BEE16 /* UIImage+TreatedImage.m */; };
 		9B8995A6171DB0360038096D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8995A5171DB0360038096D /* Default-568h@2x.png */; };
 		9B8995A8171DB0390038096D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8995A7171DB0390038096D /* Default.png */; };
 		9B8995AA171DB03B0038096D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8995A9171DB03B0038096D /* Default@2x.png */; };
@@ -98,6 +99,8 @@
 		9B6B706417202E55000FF8F9 /* MainBackgroundSymbol@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MainBackgroundSymbol@2x.png"; sourceTree = "<group>"; };
 		9B6B706517202E55000FF8F9 /* SearchBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchBarBackground.png; sourceTree = "<group>"; };
 		9B6B706617202E55000FF8F9 /* SearchBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchBarBackground@2x.png"; sourceTree = "<group>"; };
+		9B7408AD1730F8BA000BEE16 /* UIImage+TreatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TreatedImage.h"; sourceTree = "<group>"; };
+		9B7408AE1730F8BA000BEE16 /* UIImage+TreatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TreatedImage.m"; sourceTree = "<group>"; };
 		9B81BBE7172152E70023CA4E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B81BBE8172152E70023CA4E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		9B8995A5171DB0360038096D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 				9BC7ADCD1532464500B256EC /* GOTwitterUser.m */,
 				9BC7AD9F153243C700B256EC /* GOAppDelegate.h */,
 				9BC7ADA0153243C700B256EC /* GOAppDelegate.m */,
+				9B7408AD1730F8BA000BEE16 /* UIImage+TreatedImage.h */,
+				9B7408AE1730F8BA000BEE16 /* UIImage+TreatedImage.m */,
 				9BC7ADD515324AAD00B256EC /* GODataSource.h */,
 				9BC7ADD615324AAD00B256EC /* GODataSource.m */,
 				9BC7ADA5153243C700B256EC /* GOSearchViewController.h */,
@@ -485,6 +490,7 @@
 				9BEB4C97153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m in Sources */,
 				9B47DF4A171B8B3F0083D7AE /* JGAFImageCache.m in Sources */,
 				9B47DF4B171B8B3F0083D7AE /* NSString+JGAFSHA1.m in Sources */,
+				9B7408AF1730F8BA000BEE16 /* UIImage+TreatedImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
