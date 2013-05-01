@@ -369,6 +369,12 @@
 {
     [self.dataSource setResults:nil];
     [self.tableView reloadData];
+    
+    if(searchBar.selectedScopeButtonIndex != 0){
+        if(![searchText hasPrefix:@"#"]){
+            searchBar.text = [@"#" stringByAppendingString:searchText];
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
