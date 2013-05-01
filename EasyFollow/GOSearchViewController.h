@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "GODataSource.h"
 
+extern NSString *const GOLaunchParametersNotification;
+
 @class GOUserCell;
 @class GODataSource;
 @class GOAccountsView;

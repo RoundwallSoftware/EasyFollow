@@ -16,6 +16,8 @@
 #import "UIImage+TreatedImage.h"
 #import "GOProfileViewController.h"
 
+NSString *const GOLaunchParametersNotification = @"GOLaunchParametersNotification";
+
 @interface GOSearchViewController ()
 @property (nonatomic, strong) SLRequest *searchRequest;
 @property (nonatomic, strong) NSMutableSet *blockedIDs;
@@ -41,6 +43,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchedWithURL:) name:GOLaunchParametersNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountsDidChange:) name:GOAccountsDidChangeNotification object:nil];
     
     ACAccountStore *store = [[ACAccountStore alloc] init];
@@ -137,6 +140,25 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)launchedWithURL:(NSNotification *)notification
+{
+    NSParameterAssert(self.searchBar);
+    
+    NSURL *url = [notification object];
+    NSLog(@"URL: %@", url);
+    if([[url host] length]){
+        self.searchBar.selectedScopeButtonIndex = 0;
+        self.searchBar.text = [url host];
+        [self searchBarSearchButtonClicked:self.searchBar];
+    }
+    
+    if([[url fragment] length]){
+        self.searchBar.selectedScopeButtonIndex = 1;
+        self.searchBar.text = [@"#" stringByAppendingString:[url fragment]];
+        [self searchBarSearchButtonClicked:self.searchBar];
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -155,7 +177,7 @@
 #pragma mark Searching
 
 - (void)search:(NSString*)term{
-    if(!term || [term length] == 0){
+    if(!term || [term length] == 0 || self.accountsControl.currentAccount == nil){
         return;
     }
     
