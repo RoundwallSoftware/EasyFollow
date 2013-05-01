@@ -14,6 +14,7 @@
 #import "MBProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+TreatedImage.h"
+#import "GOProfileViewController.h"
 
 @interface GOSearchViewController ()
 @property (nonatomic, strong) SLRequest *searchRequest;
@@ -84,7 +85,7 @@
     cell.detailTextLabel.text = [user username];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UITableViewCellBackground"]];
-    cell.imageView.image = [[UIImage imageNamed:@"default_profile"] treatedImage];
+    cell.imageView.image = [UIImage treatedDefaultImage];
     
     NSString *state = nil;
     
@@ -110,13 +111,15 @@
     
     cell.imageView.image = [user.image treatedImage];
     if(!user.image){
-        cell.imageView.image = [[UIImage imageNamed:@"default_profile"] treatedImage];
+        cell.imageView.image = [UIImage treatedDefaultImage];
         
         [[JGAFImageCache sharedInstance] imageForURLString:[user profileImageURLString] completion:^(UIImage *image) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 UIImage *newImage = image;
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    user.image = image;
+                    
                     UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
                     currentCell.imageView.contentMode = UIViewContentModeScaleAspectFill;
                     currentCell.imageView.image = [newImage treatedImage];
@@ -134,6 +137,19 @@
 - (IBAction)exit:(UIStoryboardSegue *)sender{
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSParameterAssert(indexPath);
+    
+    GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
+    
+    GOProfileViewController *controller = segue.destinationViewController;
+    controller.blockedIDs = self.blockedIDs;
+    controller.followingIDs = self.followingIDs;
+    controller.user = user;
 }
 
 #pragma mark -

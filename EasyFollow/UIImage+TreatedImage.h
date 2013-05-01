@@ -11,5 +11,6 @@
 @interface UIImage (TreatedImage)
 
 - (UIImage *)treatedImage;
++ (UIImage *)treatedDefaultImage;
 
 @end

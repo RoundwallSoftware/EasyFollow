@@ -15,6 +15,8 @@ typedef void (^GOCompletionBlock)(void);
 @property(nonatomic, copy) NSString *userID;
 @property(nonatomic, copy) NSString *username;
 @property(nonatomic, copy) NSString *realName;
+@property(nonatomic, copy) NSString *location;
+@property(nonatomic, copy) NSString *urlString;
 @property(nonatomic, copy) NSString *tagline;
 @property(nonatomic, strong) UIImage *image;
 @property(nonatomic, strong) NSString *profileImageURLString;

@@ -69,4 +69,9 @@
     return newImage;
 }
 
++ (UIImage *)treatedDefaultImage
+{
+    return [[self imageNamed:@"default_profile"] treatedImage];
+}
+
 @end

@@ -16,6 +16,8 @@ NSString *const kUserScreennameKey = @"screen_name";
 NSString *const kUserNameKey = @"name";
 NSString *const kUserIsFollowingKey = @"following";
 NSString *const kUserProfileURLStringKey = @"profile_image_url";
+NSString *const kUserLocationKey = @"location";
+NSString *const kUserURLStringKey = @"url";
 
 static NSInteger requestCount = 0;
 
@@ -46,8 +48,18 @@ static NSInteger requestCount = 0;
     NSAssert(self.realName, @"NO REAL NAME!");
     
     NSString *profileURLString = dict[kUserProfileURLStringKey];
-    if(profileURLString){
+    if(![profileURLString isEqual:[NSNull null]]){
         self.profileImageURLString = profileURLString;
+    }
+    
+    NSString *location = dict[kUserLocationKey];
+    if(![location isEqual:[NSNull null]]){
+        self.location = location;
+    }
+    
+    NSString *urlString = dict[kUserURLStringKey];
+    if(![urlString isEqual:[NSNull null]]){
+        self.urlString = urlString;
     }
 }
 
