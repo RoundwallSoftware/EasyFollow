@@ -46,18 +46,18 @@
 - (void)updateFollowButtonTitle
 {
     if([self isFollowing:self.user]){
-        self.followButton.titleLabel.text = NSLocalizedString(@"Unfollow", @"Unfollow button title");
+        [self.followButton setTitle:NSLocalizedString(@"Unfollow", @"Unfollow button title") forState:UIControlStateNormal];
     }else{
-        self.followButton.titleLabel.text = NSLocalizedString(@"Follow", @"Follow button title");
+        [self.followButton setTitle:NSLocalizedString(@"Follow", @"Follow button title") forState:UIControlStateNormal];
     }
 }
 
 - (void)updateBlockButtonTitle
 {
     if([self isBlocked:self.user]){
-        self.blockButton.titleLabel.text = NSLocalizedString(@"Unblock", @"Unblock button title");
+        [self.blockButton setTitle:NSLocalizedString(@"Unblock", @"Unblock button title") forState:UIControlStateNormal];
     }else{
-        self.blockButton.titleLabel.text = NSLocalizedString(@"Block", @"Block button title");
+        [self.blockButton setTitle:NSLocalizedString(@"Block", @"Block button title") forState:UIControlStateNormal];
     }
 }
 
