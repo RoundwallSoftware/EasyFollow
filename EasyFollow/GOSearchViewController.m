@@ -59,7 +59,9 @@ NSString *const GOLaunchParametersNotification = @"GOLaunchParametersNotificatio
                 
                 [self.accountsControl setupEmpty];
                 [self.accountsControl updateAccountIndicator];
+                self.searchBar.userInteractionEnabled = NO;
             }else{
+                self.searchBar.userInteractionEnabled = YES;
                 [self becomeReady];
             }
         });
@@ -297,7 +299,11 @@ NSString *const GOLaunchParametersNotification = @"GOLaunchParametersNotificatio
     if(selectedScope == 0){
         searchBar.text = [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
     }else{
-        searchBar.text = [@"#" stringByAppendingString:searchBar.text];
+        if(searchBar.text){
+            searchBar.text = [@"#" stringByAppendingString:searchBar.text];
+        }else{
+            searchBar.text = @"#";
+        }
     }
 }
 
