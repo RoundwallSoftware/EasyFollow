@@ -18,6 +18,7 @@ NSString *const kUserIsFollowingKey = @"following";
 NSString *const kUserProfileURLStringKey = @"profile_image_url";
 NSString *const kUserLocationKey = @"location";
 NSString *const kUserURLStringKey = @"url";
+NSString *const kUserBackgroundImageURLStringKey = @"profile_background_image_url_https";
 
 static NSInteger requestCount = 0;
 
@@ -61,6 +62,11 @@ static NSInteger requestCount = 0;
     if(![urlString isEqual:[NSNull null]]){
         self.urlString = urlString;
     }
+    
+//    NSString *backgroundURLString = dict[kUserBackgroundImageURLStringKey];
+//    if(![backgroundURLString isEqual:[NSNull null]]){
+//        self.backgroundImageURLString = backgroundURLString;
+//    }
 }
 
 - (NSAttributedString *)followingStatusConsideringFollowings:(NSSet *)followings blocks:(NSSet *)blocks

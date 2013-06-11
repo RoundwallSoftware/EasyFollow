@@ -15,10 +15,14 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+TreatedImage.h"
 #import "GOProfileViewController.h"
+#import "RWSUserProfileViewController.h"
 
 NSString *const GOLaunchParametersNotification = @"GOLaunchParametersNotification";
 
 @interface GOSearchViewController ()
+@property (nonatomic, strong) CALayer *overlayLayer;
+@property (nonatomic, strong) RWSUserProfileViewController *userProfile;
+@property (nonatomic, assign) BOOL userProfileIsShown;
 @property (nonatomic, strong) SLRequest *searchRequest;
 @property (nonatomic, strong) NSMutableSet *blockedIDs;
 @property (nonatomic, strong) NSMutableSet *followingIDs;
@@ -353,7 +357,7 @@ NSString *const GOLaunchParametersNotification = @"GOLaunchParametersNotificatio
     GOTwitterUser *user = [self.dataSource objectAtIndexPath:indexPath];
     
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"View Profile"]){
-        [self performSegueWithIdentifier:@"toProfile" sender:self];
+        [self showProfile:user];
         return;
     }
     
@@ -452,6 +456,83 @@ NSString *const GOLaunchParametersNotification = @"GOLaunchParametersNotificatio
 - (BOOL)isFollowing:(GOTwitterUser *)user
 {
     return [self.followingIDs containsObject:[user userID]];
+}
+
+#pragma mark - Profile Display
+
+- (void)showProfile:(GOTwitterUser *)profile
+{
+    self.overlayLayer = [CALayer layer];
+    self.overlayLayer.backgroundColor = [UIColor blackColor].CGColor;
+    self.overlayLayer.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
+    self.overlayLayer.opacity = 0.0f;
+    [self.view.layer addSublayer:self.overlayLayer];
+    
+    self.userProfile = [[RWSUserProfileViewController alloc] initWithProfile:profile];
+    self.userProfile.view.layer.position = CGPointMake(self.view.frame.size.width / 2.0f, self.view.frame.size.height + self.userProfile.view.frame.size.height/2.0f);
+    [self.view addSubview:self.userProfile.view];
+    
+    [self animateIn];
+}
+
+- (void)animateIn
+{    
+    self.userProfileIsShown = YES;
+    CFTimeInterval animationDuration = 0.3;
+    
+    // Animate user profile view
+    CGPoint fromValue = CGPointMake(self.userProfile.view.layer.position.x, self.userProfile.view.layer.position.y);
+    CGPoint toValue = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
+    
+    CABasicAnimation *slideUpAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    slideUpAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    slideUpAnimation.fromValue = [NSValue valueWithCGPoint:fromValue];
+    slideUpAnimation.toValue = [NSValue valueWithCGPoint:toValue];
+    slideUpAnimation.duration = animationDuration;
+    
+    [self.userProfile.view.layer addAnimation:slideUpAnimation forKey:@"position"];
+    self.userProfile.view.layer.position = toValue;
+    
+    // Animate overlayLayer
+    CABasicAnimation *dissolveAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    dissolveAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    dissolveAnimation.fromValue = @0.0f;
+    dissolveAnimation.toValue = @0.8f;
+    dissolveAnimation.duration = animationDuration;
+    
+    [self.overlayLayer addAnimation:dissolveAnimation forKey:@"opacity"];
+    self.overlayLayer.opacity = 0.8;
+}
+
+- (void)animateOut
+{    
+    CGFloat animationDuration = 0.3;
+    
+    // Animate user profile view
+    CGPoint fromValue = CGPointMake(self.userProfile.view.layer.position.x, self.userProfile.view.layer.position.y);
+    CGPoint toValue = CGPointMake(self.view.frame.size.width / 2.0f,
+                                  self.view.frame.size.height + self.userProfile.view.frame.size.height/2.0f);
+    
+    CABasicAnimation *slideUpAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    slideUpAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    slideUpAnimation.fromValue = [NSValue valueWithCGPoint:fromValue];
+    slideUpAnimation.toValue = [NSValue valueWithCGPoint:toValue];
+    slideUpAnimation.duration = animationDuration;
+    
+    [self.userProfile.view.layer addAnimation:slideUpAnimation forKey:@"position"];
+    self.userProfile.view.layer.position = toValue;
+    
+    // Animate overlayLayer
+    CABasicAnimation *dissolveAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    dissolveAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    dissolveAnimation.fromValue = @(self.overlayLayer.opacity);
+    dissolveAnimation.toValue = @0.8f;
+    dissolveAnimation.duration = animationDuration;
+    
+    [self.overlayLayer addAnimation:dissolveAnimation forKey:@"opacity"];
+    self.overlayLayer.opacity = 0.0;
+    
+    self.userProfileIsShown = NO;
 }
 
 @end

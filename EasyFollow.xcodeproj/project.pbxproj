@@ -56,6 +56,23 @@
 		9BC7ADD41532466A00B256EC /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC7ADD31532466A00B256EC /* Accounts.framework */; };
 		9BC7ADD715324AAE00B256EC /* GODataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD615324AAD00B256EC /* GODataSource.m */; };
 		9BC7ADDB15324F1400B256EC /* GOAccountsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC7ADD915324F1400B256EC /* GOAccountsView.m */; };
+		9BE15057176793AC00137634 /* RWSUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE15055176793AC00137634 /* RWSUserProfileViewController.m */; };
+		9BE15058176793AC00137634 /* RWSUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE15056176793AC00137634 /* RWSUserProfileViewController.xib */; };
+		9BE1505B1767947700137634 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE1505A1767947700137634 /* QuartzCore.framework */; };
+		9BE1505E1767969C00137634 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1505D1767969C00137634 /* FXLabel.m */; };
+		9BE1506B1767995300137634 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE1505F1767995300137634 /* Background.png */; };
+		9BE1506C1767995300137634 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE150601767995300137634 /* Background@2x.png */; };
+		9BE1506D1767995300137634 /* Button_Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE150611767995300137634 /* Button_Pressed.png */; };
+		9BE1506E1767995300137634 /* Button_Pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE150621767995300137634 /* Button_Pressed@2x.png */; };
+		9BE1506F1767995300137634 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE150631767995300137634 /* Button.png */; };
+		9BE150701767995300137634 /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE150641767995300137634 /* Button@2x.png */; };
+		9BE150711767995300137634 /* Separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE150651767995300137634 /* Separator.png */; };
+		9BE150721767995300137634 /* Separator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE150661767995300137634 /* Separator@2x.png */; };
+		9BE150731767995300137634 /* Unfollow_Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE150671767995300137634 /* Unfollow_Pressed.png */; };
+		9BE150741767995300137634 /* Unfollow_Pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE150681767995300137634 /* Unfollow_Pressed@2x.png */; };
+		9BE150751767995300137634 /* Unfollow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE150691767995300137634 /* Unfollow.png */; };
+		9BE150761767995300137634 /* Unfollow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE1506A1767995300137634 /* Unfollow@2x.png */; };
+		9BE1507817679BC800137634 /* ExampleHeaderPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9BE1507717679BC800137634 /* ExampleHeaderPhoto.jpg */; };
 		9BEB4C8D15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */; };
 		9BEB4C97153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB4C96153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.m */; };
 /* End PBXBuildFile section */
@@ -149,6 +166,25 @@
 		9BC7ADD915324F1400B256EC /* GOAccountsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOAccountsView.m; sourceTree = "<group>"; };
 		9BCA4614172141FC00F59665 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9BCA4615172141FC00F59665 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
+		9BE15054176793AC00137634 /* RWSUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSUserProfileViewController.h; sourceTree = "<group>"; };
+		9BE15055176793AC00137634 /* RWSUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSUserProfileViewController.m; sourceTree = "<group>"; };
+		9BE15056176793AC00137634 /* RWSUserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RWSUserProfileViewController.xib; sourceTree = "<group>"; };
+		9BE1505A1767947700137634 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9BE1505C1767969C00137634 /* FXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXLabel.h; sourceTree = "<group>"; };
+		9BE1505D1767969C00137634 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
+		9BE1505F1767995300137634 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		9BE150601767995300137634 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		9BE150611767995300137634 /* Button_Pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Pressed.png; sourceTree = "<group>"; };
+		9BE150621767995300137634 /* Button_Pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button_Pressed@2x.png"; sourceTree = "<group>"; };
+		9BE150631767995300137634 /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button.png; sourceTree = "<group>"; };
+		9BE150641767995300137634 /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
+		9BE150651767995300137634 /* Separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Separator.png; sourceTree = "<group>"; };
+		9BE150661767995300137634 /* Separator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Separator@2x.png"; sourceTree = "<group>"; };
+		9BE150671767995300137634 /* Unfollow_Pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unfollow_Pressed.png; sourceTree = "<group>"; };
+		9BE150681767995300137634 /* Unfollow_Pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unfollow_Pressed@2x.png"; sourceTree = "<group>"; };
+		9BE150691767995300137634 /* Unfollow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unfollow.png; sourceTree = "<group>"; };
+		9BE1506A1767995300137634 /* Unfollow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unfollow@2x.png"; sourceTree = "<group>"; };
+		9BE1507717679BC800137634 /* ExampleHeaderPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ExampleHeaderPhoto.jpg; sourceTree = "<group>"; };
 		9BEB4C8B15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+GODictionaryLiterals.h"; sourceTree = "<group>"; };
 		9BEB4C8C15328FCD0006F2B4 /* NSCache+GODictionaryLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCache+GODictionaryLiterals.m"; sourceTree = "<group>"; };
 		9BEB4C95153295390006F2B4 /* NSUserDefaults+GODictionaryLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+GODictionaryLiterals.h"; sourceTree = "<group>"; };
@@ -160,13 +196,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE1505B1767947700137634 /* QuartzCore.framework in Frameworks */,
+				9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */,
 				9B47DF54171B8ED80083D7AE /* Social.framework in Frameworks */,
 				9B47DF51171B8B8A0083D7AE /* MobileCoreServices.framework in Frameworks */,
 				9B47DF4F171B8B760083D7AE /* SystemConfiguration.framework in Frameworks */,
 				9BC7ADD41532466A00B256EC /* Accounts.framework in Frameworks */,
 				9BC7AD91153243C700B256EC /* UIKit.framework in Frameworks */,
 				9BC7AD93153243C700B256EC /* Foundation.framework in Frameworks */,
-				9BC7AD95153243C700B256EC /* CoreGraphics.framework in Frameworks */,
 				7B89A8E4886B4300B76B059B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +255,7 @@
 		9BC7AD8F153243C700B256EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9BE1505A1767947700137634 /* QuartzCore.framework */,
 				9B47DF53171B8ED80083D7AE /* Social.framework */,
 				9B47DF50171B8B8A0083D7AE /* MobileCoreServices.framework */,
 				9B47DF4E171B8B760083D7AE /* SystemConfiguration.framework */,
@@ -235,6 +273,7 @@
 		9BC7AD96153243C700B256EC /* EasyFollow */ = {
 			isa = PBXGroup;
 			children = (
+				9BE15059176793B000137634 /* User Profile */,
 				9B51934C171DC0B900353EDE /* Localizable.strings */,
 				9B47DF44171B8B3F0083D7AE /* JGAFImageCache */,
 				9BC7ADDD15324F1A00B256EC /* Account Selector */,
@@ -260,6 +299,19 @@
 		9BC7AD97153243C700B256EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9BE1507717679BC800137634 /* ExampleHeaderPhoto.jpg */,
+				9BE1505F1767995300137634 /* Background.png */,
+				9BE150601767995300137634 /* Background@2x.png */,
+				9BE150611767995300137634 /* Button_Pressed.png */,
+				9BE150621767995300137634 /* Button_Pressed@2x.png */,
+				9BE150631767995300137634 /* Button.png */,
+				9BE150641767995300137634 /* Button@2x.png */,
+				9BE150651767995300137634 /* Separator.png */,
+				9BE150661767995300137634 /* Separator@2x.png */,
+				9BE150671767995300137634 /* Unfollow_Pressed.png */,
+				9BE150681767995300137634 /* Unfollow_Pressed@2x.png */,
+				9BE150691767995300137634 /* Unfollow.png */,
+				9BE1506A1767995300137634 /* Unfollow@2x.png */,
 				9B6B706017202E55000FF8F9 /* MainBackground-568h@2x.png */,
 				9B6B706117202E55000FF8F9 /* MainBackground.png */,
 				9B6B706217202E55000FF8F9 /* MainBackground@2x.png */,
@@ -318,6 +370,18 @@
 				9BC7ADD915324F1400B256EC /* GOAccountsView.m */,
 			);
 			name = "Account Selector";
+			sourceTree = "<group>";
+		};
+		9BE15059176793B000137634 /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9BE1505C1767969C00137634 /* FXLabel.h */,
+				9BE1505D1767969C00137634 /* FXLabel.m */,
+				9BE15054176793AC00137634 /* RWSUserProfileViewController.h */,
+				9BE15055176793AC00137634 /* RWSUserProfileViewController.m */,
+				9BE15056176793AC00137634 /* RWSUserProfileViewController.xib */,
+			);
+			name = "User Profile";
 			sourceTree = "<group>";
 		};
 		9BEB4C94153294250006F2B4 /* Categories that should be deleted */ = {
@@ -438,6 +502,20 @@
 				9B6B706B17202E55000FF8F9 /* MainBackgroundSymbol@2x.png in Resources */,
 				9B6B706C17202E55000FF8F9 /* SearchBarBackground.png in Resources */,
 				9B6B706D17202E55000FF8F9 /* SearchBarBackground@2x.png in Resources */,
+				9BE15058176793AC00137634 /* RWSUserProfileViewController.xib in Resources */,
+				9BE1506B1767995300137634 /* Background.png in Resources */,
+				9BE1506C1767995300137634 /* Background@2x.png in Resources */,
+				9BE1506D1767995300137634 /* Button_Pressed.png in Resources */,
+				9BE1506E1767995300137634 /* Button_Pressed@2x.png in Resources */,
+				9BE1506F1767995300137634 /* Button.png in Resources */,
+				9BE150701767995300137634 /* Button@2x.png in Resources */,
+				9BE150711767995300137634 /* Separator.png in Resources */,
+				9BE150721767995300137634 /* Separator@2x.png in Resources */,
+				9BE150731767995300137634 /* Unfollow_Pressed.png in Resources */,
+				9BE150741767995300137634 /* Unfollow_Pressed@2x.png in Resources */,
+				9BE150751767995300137634 /* Unfollow.png in Resources */,
+				9BE150761767995300137634 /* Unfollow@2x.png in Resources */,
+				9BE1507817679BC800137634 /* ExampleHeaderPhoto.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +575,8 @@
 				9B47DF4B171B8B3F0083D7AE /* NSString+JGAFSHA1.m in Sources */,
 				9B7408AF1730F8BA000BEE16 /* UIImage+TreatedImage.m in Sources */,
 				9B7408B21730F967000BEE16 /* GOProfileViewController.m in Sources */,
+				9BE15057176793AC00137634 /* RWSUserProfileViewController.m in Sources */,
+				9BE1505E1767969C00137634 /* FXLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
